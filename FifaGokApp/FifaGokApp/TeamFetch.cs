@@ -7,32 +7,33 @@ using Newtonsoft.Json;
 
 namespace FifaGokApp
 {
-    class TeamFetch
+    public class Record
     {
-        public class Record
-        {
-            [JsonProperty("id")]
-            public string id { get; set; }
-           
-            [JsonProperty("teamname")]
-            public string TeamName { get; set; }
+        [JsonProperty("id")]
+        public string id { get; set; }
 
-            [JsonProperty("players")]
-            public string Players { get; set; }
+        [JsonProperty("teamname")]
+        public string TeamName { get; set; }
 
-            [JsonProperty("created_by")]
-            public string created_by { get; set; }
-            [JsonProperty("points")]
-            public string points { get; set; }
+        [JsonProperty("players")]
+        public string Players { get; set; }
 
-        }
-
-        public class RootObject
-        {
-            [JsonProperty("records")]
-            public List<Record> records { get; set; }
-        }
-
+        [JsonProperty("created_by")]
+        public string created_by { get; set; }
+        [JsonProperty("points")]
+        public string points { get; set; }
 
     }
+    /* class TeamFetch
+     {
+
+
+        /* public class RootObject
+         {
+             [JsonProperty("records")]
+             public List<Record> records { get; set; }
+         }
+
+
+     }*/
 }
