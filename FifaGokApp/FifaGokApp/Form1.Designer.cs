@@ -68,7 +68,7 @@
             // 
             this.creditsLabel.AutoSize = true;
             this.creditsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creditsLabel.Location = new System.Drawing.Point(572, 30);
+            this.creditsLabel.Location = new System.Drawing.Point(556, 29);
             this.creditsLabel.Name = "creditsLabel";
             this.creditsLabel.Size = new System.Drawing.Size(127, 37);
             this.creditsLabel.TabIndex = 12;
@@ -78,7 +78,7 @@
             // 
             this.creditAmountLabel.AutoSize = true;
             this.creditAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creditAmountLabel.Location = new System.Drawing.Point(695, 30);
+            this.creditAmountLabel.Location = new System.Drawing.Point(679, 29);
             this.creditAmountLabel.Name = "creditAmountLabel";
             this.creditAmountLabel.Size = new System.Drawing.Size(35, 37);
             this.creditAmountLabel.TabIndex = 13;
@@ -87,7 +87,7 @@
             // 
             // betButton
             // 
-            this.betButton.Location = new System.Drawing.Point(345, 343);
+            this.betButton.Location = new System.Drawing.Point(152, 336);
             this.betButton.Name = "betButton";
             this.betButton.Size = new System.Drawing.Size(124, 38);
             this.betButton.TabIndex = 14;
@@ -96,7 +96,7 @@
             // 
             // loadTeamsButton
             // 
-            this.loadTeamsButton.Location = new System.Drawing.Point(730, 607);
+            this.loadTeamsButton.Location = new System.Drawing.Point(537, 309);
             this.loadTeamsButton.Name = "loadTeamsButton";
             this.loadTeamsButton.Size = new System.Drawing.Size(120, 47);
             this.loadTeamsButton.TabIndex = 15;
@@ -107,7 +107,7 @@
             // load
             // 
             this.load.AutoSize = true;
-            this.load.Location = new System.Drawing.Point(727, 576);
+            this.load.Location = new System.Drawing.Point(534, 278);
             this.load.Name = "load";
             this.load.Size = new System.Drawing.Size(41, 13);
             this.load.TabIndex = 16;
@@ -120,7 +120,7 @@
             this.teamPanel.Controls.Add(this.label2);
             this.teamPanel.Controls.Add(this.teamScore2);
             this.teamPanel.Controls.Add(this.teamScore1);
-            this.teamPanel.Location = new System.Drawing.Point(235, 163);
+            this.teamPanel.Location = new System.Drawing.Point(42, 156);
             this.teamPanel.Name = "teamPanel";
             this.teamPanel.Size = new System.Drawing.Size(386, 153);
             this.teamPanel.TabIndex = 17;
@@ -153,18 +153,20 @@
             // teamLabel1
             // 
             this.teamLabel1.AutoSize = true;
+            this.teamLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teamLabel1.Location = new System.Drawing.Point(12, 18);
             this.teamLabel1.Name = "teamLabel1";
-            this.teamLabel1.Size = new System.Drawing.Size(35, 13);
+            this.teamLabel1.Size = new System.Drawing.Size(46, 18);
             this.teamLabel1.TabIndex = 3;
             this.teamLabel1.Text = "label3";
             // 
             // teamLabel2
             // 
             this.teamLabel2.AutoSize = true;
+            this.teamLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teamLabel2.Location = new System.Drawing.Point(320, 15);
             this.teamLabel2.Name = "teamLabel2";
-            this.teamLabel2.Size = new System.Drawing.Size(35, 13);
+            this.teamLabel2.Size = new System.Drawing.Size(46, 18);
             this.teamLabel2.TabIndex = 4;
             this.teamLabel2.Text = "label4";
             // 
@@ -172,7 +174,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(862, 666);
+            this.ClientSize = new System.Drawing.Size(758, 395);
             this.Controls.Add(this.teamPanel);
             this.Controls.Add(this.load);
             this.Controls.Add(this.loadTeamsButton);
