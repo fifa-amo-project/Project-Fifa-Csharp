@@ -36,11 +36,12 @@
             this.loadTeamsButton = new System.Windows.Forms.Button();
             this.load = new System.Windows.Forms.Label();
             this.teamPanel = new System.Windows.Forms.Panel();
-            this.teamScore1 = new System.Windows.Forms.TextBox();
-            this.teamScore2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.teamLabel1 = new System.Windows.Forms.Label();
             this.teamLabel2 = new System.Windows.Forms.Label();
+            this.teamLabel1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.teamScore2 = new System.Windows.Forms.TextBox();
+            this.teamScore1 = new System.Windows.Forms.TextBox();
+            this.saveButton = new System.Windows.Forms.Button();
             this.teamPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +84,6 @@
             this.creditAmountLabel.Size = new System.Drawing.Size(35, 37);
             this.creditAmountLabel.TabIndex = 13;
             this.creditAmountLabel.Text = "0";
-            this.creditAmountLabel.Click += new System.EventHandler(this.creditAmountLabel_Click);
             // 
             // betButton
             // 
@@ -102,7 +102,6 @@
             this.loadTeamsButton.TabIndex = 15;
             this.loadTeamsButton.Text = "Laad";
             this.loadTeamsButton.UseVisualStyleBackColor = true;
-            this.loadTeamsButton.Click += new System.EventHandler(this.LoadTeamsButton_Click);
             // 
             // load
             // 
@@ -125,20 +124,23 @@
             this.teamPanel.Size = new System.Drawing.Size(386, 153);
             this.teamPanel.TabIndex = 17;
             // 
-            // teamScore1
+            // teamLabel2
             // 
-            this.teamScore1.Location = new System.Drawing.Point(155, 18);
-            this.teamScore1.Name = "teamScore1";
-            this.teamScore1.Size = new System.Drawing.Size(31, 20);
-            this.teamScore1.TabIndex = 0;
+            this.teamLabel2.AutoSize = true;
+            this.teamLabel2.Location = new System.Drawing.Point(320, 15);
+            this.teamLabel2.Name = "teamLabel2";
+            this.teamLabel2.Size = new System.Drawing.Size(35, 13);
+            this.teamLabel2.TabIndex = 4;
+            this.teamLabel2.Text = "label4";
             // 
-            // teamScore2
+            // teamLabel1
             // 
-            this.teamScore2.Location = new System.Drawing.Point(217, 19);
-            this.teamScore2.Name = "teamScore2";
-            this.teamScore2.Size = new System.Drawing.Size(31, 20);
-            this.teamScore2.TabIndex = 1;
-            this.teamScore2.TextChanged += new System.EventHandler(this.TeamScore2_TextChanged);
+            this.teamLabel1.AutoSize = true;
+            this.teamLabel1.Location = new System.Drawing.Point(12, 18);
+            this.teamLabel1.Name = "teamLabel1";
+            this.teamLabel1.Size = new System.Drawing.Size(35, 13);
+            this.teamLabel1.TabIndex = 3;
+            this.teamLabel1.Text = "label3";
             // 
             // label2
             // 
@@ -150,29 +152,37 @@
             this.label2.Text = ":";
             this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
-            // teamLabel1
+            // teamScore2
             // 
-            this.teamLabel1.AutoSize = true;
-            this.teamLabel1.Location = new System.Drawing.Point(12, 18);
-            this.teamLabel1.Name = "teamLabel1";
-            this.teamLabel1.Size = new System.Drawing.Size(35, 13);
-            this.teamLabel1.TabIndex = 3;
-            this.teamLabel1.Text = "label3";
+            this.teamScore2.Location = new System.Drawing.Point(217, 19);
+            this.teamScore2.Name = "teamScore2";
+            this.teamScore2.Size = new System.Drawing.Size(31, 20);
+            this.teamScore2.TabIndex = 1;
+            this.teamScore2.TextChanged += new System.EventHandler(this.TeamScore2_TextChanged);
             // 
-            // teamLabel2
+            // teamScore1
             // 
-            this.teamLabel2.AutoSize = true;
-            this.teamLabel2.Location = new System.Drawing.Point(320, 15);
-            this.teamLabel2.Name = "teamLabel2";
-            this.teamLabel2.Size = new System.Drawing.Size(35, 13);
-            this.teamLabel2.TabIndex = 4;
-            this.teamLabel2.Text = "label4";
+            this.teamScore1.Location = new System.Drawing.Point(155, 18);
+            this.teamScore1.Name = "teamScore1";
+            this.teamScore1.Size = new System.Drawing.Size(31, 20);
+            this.teamScore1.TabIndex = 0;
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(349, 607);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(120, 47);
+            this.saveButton.TabIndex = 18;
+            this.saveButton.Text = "opslaan";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 666);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.teamPanel);
             this.Controls.Add(this.load);
             this.Controls.Add(this.loadTeamsButton);
@@ -205,6 +215,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox teamScore2;
         private System.Windows.Forms.TextBox teamScore1;
+        private System.Windows.Forms.Button saveButton;
     }
 }
 

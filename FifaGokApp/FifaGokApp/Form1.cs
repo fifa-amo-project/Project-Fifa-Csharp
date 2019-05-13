@@ -16,17 +16,24 @@ using Newtonsoft.Json.Linq;
 namespace FifaGokApp
 {
     public partial class Form1 : Form
-    {
+    {   string jsonTeams;
+        public int creditAmount;
 
-        string jsonTeams;
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void creditAmountLabel_Click(object sender, EventArgs e)
+        public void updateMoneyLabel()
         {
-
+            if (Application.OpenForms.OfType<Form1>().Count() == 1)
+            {
+                creditAmount = 50;
+            }
+            else
+            { 
+            }
+            creditAmountLabel.Text = creditAmount.ToString();
         }
 
         public async Task<string> fetchTeams()
@@ -109,8 +116,7 @@ namespace FifaGokApp
                     colonLabel.Location = new System.Drawing.Point(192, locationY);
                     colonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     teamPanel.Controls.Add(colonLabel);
-
-
+                    
                     isLeftSide = false;
                 }
                 else
@@ -125,45 +131,34 @@ namespace FifaGokApp
                     isLeftSide = true;
                 }
             }
-
-            
-            
-
-            
-
         }
+
+        
 
         public void Form1_Load(object sender, EventArgs e)
         {
             LoadTeams();
+            updateMoneyLabel();
 
-         
-                
-                
-               /* string url = string.Format("http://jaibreyonlourens.nl/Project-Fifa-PHP/API/read.php");
-            using (var webClient = new WebClient())
-            {
-                var response = webClient.DownloadString(url);
-                
-                label1.Text = response;
-            }              */
-               
-           
-        }
+            /* string url = string.Format("http://jaibreyonlourens.nl/Project-Fifa-PHP/API/read.php");
+         using (var webClient = new WebClient())
+         {
+             var response = webClient.DownloadString(url);
 
-        private void LoadTeamsButton_Click(object sender, EventArgs e)
-        {
-
+             label1.Text = response;
+         }              */
         }
 
         private void Label2_Click(object sender, EventArgs e)
         {
-
         }
 
         private void TeamScore2_TextChanged(object sender, EventArgs e)
         {
+        }
 
+        private void saveButton_Click(object sender, EventArgs e)
+        {
         }
     }
 }
