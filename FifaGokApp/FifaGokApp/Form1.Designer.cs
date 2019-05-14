@@ -42,6 +42,9 @@
             this.teamScore2 = new System.Windows.Forms.TextBox();
             this.teamScore1 = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
+            this.addGuyButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.teamPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -154,17 +157,14 @@
             // 
             // teamScore2
             // 
-
             this.teamScore2.Location = new System.Drawing.Point(217, 19);
             this.teamScore2.Name = "teamScore2";
             this.teamScore2.Size = new System.Drawing.Size(31, 20);
             this.teamScore2.TabIndex = 1;
             this.teamScore2.TextChanged += new System.EventHandler(this.TeamScore2_TextChanged);
-
             // 
             // teamScore1
             // 
-
             this.teamScore1.Location = new System.Drawing.Point(155, 18);
             this.teamScore1.Name = "teamScore1";
             this.teamScore1.Size = new System.Drawing.Size(31, 20);
@@ -179,16 +179,43 @@
             this.saveButton.Text = "opslaan";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-
+            // 
+            // addGuyButton
+            // 
+            this.addGuyButton.Location = new System.Drawing.Point(671, 460);
+            this.addGuyButton.Name = "addGuyButton";
+            this.addGuyButton.Size = new System.Drawing.Size(164, 47);
+            this.addGuyButton.TabIndex = 19;
+            this.addGuyButton.Text = "Maak nieuw account aan";
+            this.addGuyButton.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "label3";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(497, 112);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "label4";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
             this.ClientSize = new System.Drawing.Size(862, 666);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.addGuyButton);
             this.Controls.Add(this.saveButton);
-
             this.Controls.Add(this.teamPanel);
             this.Controls.Add(this.load);
             this.Controls.Add(this.loadTeamsButton);
@@ -198,7 +225,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.welcomeLabel);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "s";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.teamPanel.ResumeLayout(false);
             this.teamPanel.PerformLayout();
@@ -222,6 +249,9 @@
         private System.Windows.Forms.TextBox teamScore2;
         private System.Windows.Forms.TextBox teamScore1;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button addGuyButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

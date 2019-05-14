@@ -13,6 +13,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
+
 namespace FifaGokApp
 {
     public partial class Form1 : Form
@@ -28,7 +29,7 @@ namespace FifaGokApp
         {
             if (Application.OpenForms.OfType<Form1>().Count() == 1)
             {
-                creditAmount = 50;
+                creditAmount = Program.guy.Credits;
             }
             else
             { 
@@ -140,14 +141,8 @@ namespace FifaGokApp
         {
             LoadTeams();
             updateMoneyLabel();
-
-            /* string url = string.Format("http://jaibreyonlourens.nl/Project-Fifa-PHP/API/read.php");
-         using (var webClient = new WebClient())
-         {
-             var response = webClient.DownloadString(url);
-
-             label1.Text = response;
-         }              */
+            label4.Text = Program.guy.Name;
+         
         }
 
         private void Label2_Click(object sender, EventArgs e)
