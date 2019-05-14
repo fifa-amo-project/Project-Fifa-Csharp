@@ -34,7 +34,6 @@
             this.creditAmountLabel = new System.Windows.Forms.Label();
             this.betButton = new System.Windows.Forms.Button();
             this.loadTeamsButton = new System.Windows.Forms.Button();
-            this.load = new System.Windows.Forms.Label();
             this.teamPanel = new System.Windows.Forms.Panel();
             this.teamLabel2 = new System.Windows.Forms.Label();
             this.teamLabel1 = new System.Windows.Forms.Label();
@@ -43,8 +42,6 @@
             this.teamScore1 = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.addGuyButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.teamPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,9 +51,8 @@
             this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.welcomeLabel.Location = new System.Drawing.Point(12, 9);
             this.welcomeLabel.Name = "welcomeLabel";
-            this.welcomeLabel.Size = new System.Drawing.Size(451, 39);
+            this.welcomeLabel.Size = new System.Drawing.Size(0, 39);
             this.welcomeLabel.TabIndex = 0;
-            this.welcomeLabel.Text = "Welkom in de FIFA gok app!\r\n";
             // 
             // label1
             // 
@@ -72,7 +68,7 @@
             // 
             this.creditsLabel.AutoSize = true;
             this.creditsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creditsLabel.Location = new System.Drawing.Point(556, 29);
+            this.creditsLabel.Location = new System.Drawing.Point(495, 87);
             this.creditsLabel.Name = "creditsLabel";
             this.creditsLabel.Size = new System.Drawing.Size(127, 37);
             this.creditsLabel.TabIndex = 12;
@@ -82,7 +78,7 @@
             // 
             this.creditAmountLabel.AutoSize = true;
             this.creditAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creditAmountLabel.Location = new System.Drawing.Point(679, 29);
+            this.creditAmountLabel.Location = new System.Drawing.Point(628, 87);
             this.creditAmountLabel.Name = "creditAmountLabel";
             this.creditAmountLabel.Size = new System.Drawing.Size(35, 37);
             this.creditAmountLabel.TabIndex = 13;
@@ -90,7 +86,7 @@
             // 
             // betButton
             // 
-            this.betButton.Location = new System.Drawing.Point(152, 336);
+            this.betButton.Location = new System.Drawing.Point(42, 336);
             this.betButton.Name = "betButton";
             this.betButton.Size = new System.Drawing.Size(124, 38);
             this.betButton.TabIndex = 14;
@@ -99,21 +95,12 @@
             // 
             // loadTeamsButton
             // 
-            this.loadTeamsButton.Location = new System.Drawing.Point(537, 309);
+            this.loadTeamsButton.Location = new System.Drawing.Point(308, 327);
             this.loadTeamsButton.Name = "loadTeamsButton";
             this.loadTeamsButton.Size = new System.Drawing.Size(120, 47);
             this.loadTeamsButton.TabIndex = 15;
             this.loadTeamsButton.Text = "Laad";
             this.loadTeamsButton.UseVisualStyleBackColor = true;
-            // 
-            // load
-            // 
-            this.load.AutoSize = true;
-            this.load.Location = new System.Drawing.Point(534, 278);
-            this.load.Name = "load";
-            this.load.Size = new System.Drawing.Size(41, 13);
-            this.load.TabIndex = 16;
-            this.load.Text = "label14";
             // 
             // teamPanel
             // 
@@ -172,7 +159,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(349, 607);
+            this.saveButton.Location = new System.Drawing.Point(172, 327);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(120, 47);
             this.saveButton.TabIndex = 18;
@@ -182,42 +169,22 @@
             // 
             // addGuyButton
             // 
-            this.addGuyButton.Location = new System.Drawing.Point(671, 460);
+            this.addGuyButton.Location = new System.Drawing.Point(434, 327);
             this.addGuyButton.Name = "addGuyButton";
             this.addGuyButton.Size = new System.Drawing.Size(164, 47);
             this.addGuyButton.TabIndex = 19;
             this.addGuyButton.Text = "Maak nieuw account aan";
             this.addGuyButton.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "label3";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(497, 112);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "label4";
+            this.addGuyButton.Click += new System.EventHandler(this.AddGuyButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(862, 666);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(862, 442);
             this.Controls.Add(this.addGuyButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.teamPanel);
-            this.Controls.Add(this.load);
             this.Controls.Add(this.loadTeamsButton);
             this.Controls.Add(this.betButton);
             this.Controls.Add(this.creditsLabel);
@@ -225,7 +192,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.welcomeLabel);
             this.Name = "Form1";
-            this.Text = "s";
+            this.Tag = "";
+            this.Text = "Fifa";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.teamPanel.ResumeLayout(false);
             this.teamPanel.PerformLayout();
@@ -241,7 +209,6 @@
         private System.Windows.Forms.Label creditAmountLabel;
         private System.Windows.Forms.Button betButton;
         private System.Windows.Forms.Button loadTeamsButton;
-        private System.Windows.Forms.Label load;
         private System.Windows.Forms.Panel teamPanel;
         private System.Windows.Forms.Label teamLabel2;
         private System.Windows.Forms.Label teamLabel1;
@@ -250,8 +217,6 @@
         private System.Windows.Forms.TextBox teamScore1;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button addGuyButton;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
     }
 }
 

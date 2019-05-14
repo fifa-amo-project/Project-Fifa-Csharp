@@ -141,7 +141,7 @@ namespace FifaGokApp
         {
             LoadTeams();
             updateMoneyLabel();
-            label4.Text = Program.guy.Name;
+            welcomeLabel.Text = string.Format("Welkom {0} in de FIFA gok app!", Program.guy.Name);
          
         }
 
