@@ -1,9 +1,17 @@
 ﻿using System;
+using System.Net;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
+using System.IO;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 namespace FifaGokApp
 {
     class Gokker
@@ -16,6 +24,20 @@ namespace FifaGokApp
         {
             this.Name = name;
             this.Credits = credits;
+        }
+
+        public void LoadGokker()
+        {
+            if (File.Exists(@".\InfoGokker.dat"))
+            {
+                Program.guy = JsonConvert.DeserializeObject<Gokker>(File.ReadAllText(@".\InfoGokker.dat"));
+            }
+        }
+
+
+        public void SaveGokker()
+        {
+            File.WriteAllText(@".\InfoGokker.dat", JsonConvert.SerializeObject(Program.guy));
         }
     }
 }

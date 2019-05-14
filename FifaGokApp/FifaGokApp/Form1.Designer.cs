@@ -101,6 +101,7 @@
             this.loadTeamsButton.TabIndex = 15;
             this.loadTeamsButton.Text = "Laad";
             this.loadTeamsButton.UseVisualStyleBackColor = true;
+            this.loadTeamsButton.Click += new System.EventHandler(this.LoadTeamsButton_Click);
             // 
             // teamPanel
             // 

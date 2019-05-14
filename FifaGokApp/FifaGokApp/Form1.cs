@@ -19,6 +19,8 @@ namespace FifaGokApp
     public partial class Form1 : Form
     {   string jsonTeams;
         public int creditAmount;
+        
+         
 
         public Form1()
         {
@@ -58,13 +60,8 @@ namespace FifaGokApp
             }
         }
 
-
-        public void LoadTeams()
+        public void UpdateScreen()
         {
-            string json = new WebClient().DownloadString("http://jaibreyonlourens.nl/Project-Fifa-PHP/API/read.php");
-
-            Record[] fetchedTeams = JsonConvert.DeserializeObject<Record[]>(json);
-
             //pakt alle labels van teamlabel
             var labelsVar = teamPanel.Controls.OfType<Label>();
 
@@ -82,19 +79,19 @@ namespace FifaGokApp
             int locationY = teamLabel1.Location.Y;
             int locationTextBoxY = teamScore1.Location.Y;
             int i = 0;
-            
 
-            for (int k = 0; k < fetchedTeams.Count(); k++)
+
+            for (int k = 0; k < Program.fetchedTeams.Count(); k++)
             {
-                for (; i  < labels.Count(); i++, k++)
+                for (; i < labels.Count(); i++, k++)
                 {
-                    labels[i].Text = fetchedTeams[k].TeamName;
+                    labels[i].Text = Program.fetchedTeams[k].TeamName;
                 }
                 if (isLeftSide)
                 {
                     Label teamLabel = new Label();
                     teamLabel.AutoSize = true;
-                    teamLabel.Text = fetchedTeams[k].TeamName;
+                    teamLabel.Text = Program.fetchedTeams[k].TeamName;
                     teamLabel.Location = new System.Drawing.Point(6, locationY += 30);
                     teamLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     teamPanel.Controls.Add(teamLabel);
@@ -118,14 +115,14 @@ namespace FifaGokApp
                     colonLabel.Location = new System.Drawing.Point(192, locationY);
                     colonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     teamPanel.Controls.Add(colonLabel);
-                    
+
                     isLeftSide = false;
                 }
                 else
                 {
                     Label teamLabel = new Label();
                     teamLabel.AutoSize = true;
-                    teamLabel.Text = fetchedTeams[k].TeamName;
+                    teamLabel.Text = Program.fetchedTeams[k].TeamName;
                     teamLabel.Location = new System.Drawing.Point(280, locationY);
                     teamLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     teamPanel.Controls.Add(teamLabel);
@@ -137,9 +134,12 @@ namespace FifaGokApp
 
         
 
+        
+
         public void Form1_Load(object sender, EventArgs e)
         {
-            LoadTeams();
+            UpdateScreen();
+           
             updateMoneyLabel();
             welcomeLabel.Text = string.Format("Welkom {0} in de FIFA gok app!", Program.guy.Name);
          
@@ -155,6 +155,17 @@ namespace FifaGokApp
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            Program.guy.SaveGokker();
+        }
+
+        private void AddGuyButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoadTeamsButton_Click(object sender, EventArgs e)
+        {
+            Program.guy.LoadGokker();
         }
     }
 }
