@@ -154,33 +154,17 @@
             // 
             // teamScore2
             // 
-<<<<<<< HEAD
-            this.teamLabel1.AutoSize = true;
-            this.teamLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teamLabel1.Location = new System.Drawing.Point(12, 18);
-            this.teamLabel1.Name = "teamLabel1";
-            this.teamLabel1.Size = new System.Drawing.Size(46, 18);
-            this.teamLabel1.TabIndex = 3;
-            this.teamLabel1.Text = "label3";
-=======
+
             this.teamScore2.Location = new System.Drawing.Point(217, 19);
             this.teamScore2.Name = "teamScore2";
             this.teamScore2.Size = new System.Drawing.Size(31, 20);
             this.teamScore2.TabIndex = 1;
             this.teamScore2.TextChanged += new System.EventHandler(this.TeamScore2_TextChanged);
->>>>>>> master
+
             // 
             // teamScore1
             // 
-<<<<<<< HEAD
-            this.teamLabel2.AutoSize = true;
-            this.teamLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teamLabel2.Location = new System.Drawing.Point(320, 15);
-            this.teamLabel2.Name = "teamLabel2";
-            this.teamLabel2.Size = new System.Drawing.Size(46, 18);
-            this.teamLabel2.TabIndex = 4;
-            this.teamLabel2.Text = "label4";
-=======
+
             this.teamScore1.Location = new System.Drawing.Point(155, 18);
             this.teamScore1.Name = "teamScore1";
             this.teamScore1.Size = new System.Drawing.Size(31, 20);
@@ -195,18 +179,16 @@
             this.saveButton.Text = "opslaan";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
->>>>>>> master
+
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(758, 395);
-=======
+
             this.ClientSize = new System.Drawing.Size(862, 666);
             this.Controls.Add(this.saveButton);
->>>>>>> master
+
             this.Controls.Add(this.teamPanel);
             this.Controls.Add(this.load);
             this.Controls.Add(this.loadTeamsButton);
