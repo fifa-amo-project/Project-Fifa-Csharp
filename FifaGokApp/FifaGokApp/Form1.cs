@@ -32,6 +32,7 @@ namespace FifaGokApp
             }
             else
             { 
+                // hier komt de credits te staan van de laatste savegame
             }
             creditAmountLabel.Text = creditAmount.ToString();
         }
