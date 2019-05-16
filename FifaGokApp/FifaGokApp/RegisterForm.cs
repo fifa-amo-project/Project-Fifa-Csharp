@@ -12,21 +12,29 @@ namespace FifaGokApp
 {
     public partial class RegisterForm : Form
     {
-        Form1 mainform = new Form1();
         public RegisterForm()
         {
             InitializeComponent();
         }
+        private void CreateGuyButton_Click(object sender, EventArgs e)
+        {
+            //Hier doe je dat je niet meer dan 20 karakters kan invoeren, anders krijg je waarschuwing en kan je niet verder.
+            if (nameTextBox.Text.Length > 20)
+            {
+                MessageBox.Show("doe kortere naam.");
+            }
+            else
+            {
+                Form1 mainform = new Form1();
+                name = nameTextBox.Text;
+                Program.guy.Name = name;
+                this.Hide();
+                mainform.ShowDialog();
+            }
+        }
 
         public string name = "";
 
-        private void CreateGuyButton_Click(object sender, EventArgs e)
-        {
-            
-            name = nameTextBox.Text;
-            Program.guy.Name = name;
-            this.Hide();
-            mainform.ShowDialog();
-        }
+        
     }
 }

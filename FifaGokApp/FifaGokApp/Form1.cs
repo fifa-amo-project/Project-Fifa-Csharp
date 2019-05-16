@@ -19,7 +19,12 @@ namespace FifaGokApp
     public partial class Form1 : Form
     {   string jsonTeams;
         public int creditAmount;
-        
+        Random rnd = new Random();
+
+        public int randomNumber()
+        {
+            return rnd.Next(1, 11);
+        }
 
         public Form1()
         {
@@ -37,6 +42,8 @@ namespace FifaGokApp
                 // hier komt de credits te staan van de laatste savegame
             }
             creditAmountLabel.Text = creditAmount.ToString();
+            creditNumericUpDown.Maximum = creditAmount;
+            creditNumericUpDown.ReadOnly = true;
         }
 
         public async Task<string> fetchTeams()
@@ -152,6 +159,47 @@ namespace FifaGokApp
         private void LoadTeamsButton_Click(object sender, EventArgs e)
         {
             Program.guy.LoadGokker();
+        }
+
+        private void teamPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+            for (int i = 0; i < Program.fetchedTeams.Count() / 2; i++)
+            {
+                //naam van de team aan de rechterkant
+                Label TeamAName = new Label();
+                TeamAName.Text = Program.fetchedTeams[i*2].TeamName;
+                TeamAName.Size = new Size(100, 30);
+                TeamAName.Location = new Point(0, i * 30);
+                resultPanel.Controls.Add(TeamAName);
+
+                //score van de team aan de linkerkant
+                Label TeamAScore = new Label();
+                TeamAScore.Text = randomNumber().ToString();
+                TeamAScore.Size = new Size(20, 30);
+                TeamAScore.Location = new Point(100, i * 30);
+                resultPanel.Controls.Add(TeamAScore);
+                
+                // dit is de ":"
+                Label between = new Label();
+                between.Text = " : ";
+                between.Size = new Size(15, 30);
+                between.Location = new Point(125, i * 30);
+                resultPanel.Controls.Add(between);
+
+                //score van de team aan de rechterkant
+                Label TeamBScore = new Label();
+                TeamBScore.Text = randomNumber().ToString();
+                TeamBScore.Size = new Size(20, 30);
+                TeamBScore.Location = new Point(150, i * 30);
+                resultPanel.Controls.Add(TeamBScore);
+
+                //naam van de team aan de rechterkant
+                Label TeamBName = new Label();
+                TeamBName.Text = Program.fetchedTeams[i * 2 + 1].TeamName;
+                TeamBName.Location = new Point(250, i * 30);
+                resultPanel.Controls.Add(TeamBName);
+            }
         }
     }
 }

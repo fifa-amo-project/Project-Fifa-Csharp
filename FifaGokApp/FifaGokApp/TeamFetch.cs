@@ -20,9 +20,14 @@ namespace FifaGokApp
 
         [JsonProperty("created_by")]
         public string created_by { get; set; }
+
         [JsonProperty("points")]
         public string points { get; set; }
 
+        public Record(string teamName)
+        {
+            TeamName = teamName;
+        }
     }
     /* class TeamFetch
      {

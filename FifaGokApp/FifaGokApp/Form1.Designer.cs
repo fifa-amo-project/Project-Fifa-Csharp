@@ -44,6 +44,7 @@
             this.addGuyButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.creditNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.resultPanel = new System.Windows.Forms.Panel();
             this.teamPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.creditNumericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -117,6 +118,7 @@
             this.teamPanel.Name = "teamPanel";
             this.teamPanel.Size = new System.Drawing.Size(386, 153);
             this.teamPanel.TabIndex = 17;
+            this.teamPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.teamPanel_Paint);
             // 
             // teamLabel2
             // 
@@ -194,11 +196,19 @@
             this.creditNumericUpDown.Size = new System.Drawing.Size(104, 20);
             this.creditNumericUpDown.TabIndex = 21;
             // 
+            // resultPanel
+            // 
+            this.resultPanel.Location = new System.Drawing.Point(464, 156);
+            this.resultPanel.Name = "resultPanel";
+            this.resultPanel.Size = new System.Drawing.Size(386, 153);
+            this.resultPanel.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 442);
+            this.Controls.Add(this.resultPanel);
             this.Controls.Add(this.creditNumericUpDown);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.addGuyButton);
@@ -239,6 +249,7 @@
         private System.Windows.Forms.Button addGuyButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown creditNumericUpDown;
+        private System.Windows.Forms.Panel resultPanel;
     }
 }
 
