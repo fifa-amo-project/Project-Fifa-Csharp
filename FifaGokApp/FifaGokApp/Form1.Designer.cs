@@ -42,7 +42,10 @@
             this.teamScore1 = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.addGuyButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.creditNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.teamPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.creditNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // welcomeLabel
@@ -86,7 +89,7 @@
             // 
             // betButton
             // 
-            this.betButton.Location = new System.Drawing.Point(42, 336);
+            this.betButton.Location = new System.Drawing.Point(42, 364);
             this.betButton.Name = "betButton";
             this.betButton.Size = new System.Drawing.Size(124, 38);
             this.betButton.TabIndex = 14;
@@ -95,7 +98,7 @@
             // 
             // loadTeamsButton
             // 
-            this.loadTeamsButton.Location = new System.Drawing.Point(308, 327);
+            this.loadTeamsButton.Location = new System.Drawing.Point(308, 355);
             this.loadTeamsButton.Name = "loadTeamsButton";
             this.loadTeamsButton.Size = new System.Drawing.Size(120, 47);
             this.loadTeamsButton.TabIndex = 15;
@@ -141,7 +144,6 @@
             this.label2.Size = new System.Drawing.Size(10, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = ":";
-            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // teamScore2
             // 
@@ -149,7 +151,6 @@
             this.teamScore2.Name = "teamScore2";
             this.teamScore2.Size = new System.Drawing.Size(31, 20);
             this.teamScore2.TabIndex = 1;
-            this.teamScore2.TextChanged += new System.EventHandler(this.TeamScore2_TextChanged);
             // 
             // teamScore1
             // 
@@ -160,7 +161,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(172, 327);
+            this.saveButton.Location = new System.Drawing.Point(172, 355);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(120, 47);
             this.saveButton.TabIndex = 18;
@@ -170,19 +171,36 @@
             // 
             // addGuyButton
             // 
-            this.addGuyButton.Location = new System.Drawing.Point(434, 327);
+            this.addGuyButton.Location = new System.Drawing.Point(434, 355);
             this.addGuyButton.Name = "addGuyButton";
             this.addGuyButton.Size = new System.Drawing.Size(164, 47);
             this.addGuyButton.TabIndex = 19;
             this.addGuyButton.Text = "Maak nieuw account aan";
             this.addGuyButton.UseVisualStyleBackColor = true;
-            this.addGuyButton.Click += new System.EventHandler(this.AddGuyButton_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(39, 322);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(111, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "hoeveel wil je inzetten";
+            // 
+            // creditNumericUpDown
+            // 
+            this.creditNumericUpDown.Location = new System.Drawing.Point(156, 320);
+            this.creditNumericUpDown.Name = "creditNumericUpDown";
+            this.creditNumericUpDown.Size = new System.Drawing.Size(104, 20);
+            this.creditNumericUpDown.TabIndex = 21;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 442);
+            this.Controls.Add(this.creditNumericUpDown);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.addGuyButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.teamPanel);
@@ -198,6 +216,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.teamPanel.ResumeLayout(false);
             this.teamPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.creditNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,6 +237,8 @@
         private System.Windows.Forms.TextBox teamScore1;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button addGuyButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown creditNumericUpDown;
     }
 }
 

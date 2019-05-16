@@ -20,7 +20,6 @@ namespace FifaGokApp
     {   string jsonTeams;
         public int creditAmount;
         
-         
 
         public Form1()
         {
@@ -145,22 +144,9 @@ namespace FifaGokApp
          
         }
 
-        private void Label2_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void TeamScore2_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         private void saveButton_Click(object sender, EventArgs e)
         {
             Program.guy.SaveGokker();
-        }
-
-        private void AddGuyButton_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void LoadTeamsButton_Click(object sender, EventArgs e)
