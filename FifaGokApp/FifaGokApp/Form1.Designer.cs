@@ -96,6 +96,7 @@
             this.betButton.TabIndex = 14;
             this.betButton.Text = "Zet in";
             this.betButton.UseVisualStyleBackColor = true;
+            this.betButton.Click += new System.EventHandler(this.betButton_Click);
             // 
             // loadTeamsButton
             // 

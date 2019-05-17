@@ -138,9 +138,20 @@ namespace FifaGokApp
             }
         }
 
-        
+        private void betButton_Click(object sender, EventArgs e)
+        {
+            int parsedValue;
+            if (teamScore1.Text.Contains(""))
+            {
+                MessageBox.Show("voer aub een stand in");
+            }
+            else if (!int.TryParse(teamScore1.Text, out parsedValue) || !int.TryParse(teamScore2.Text, out parsedValue))
+            {
+                MessageBox.Show("alleen nummers aub");
+                return;
+            }
+        }
 
-        
 
         public void Form1_Load(object sender, EventArgs e)
         {
@@ -148,7 +159,6 @@ namespace FifaGokApp
            
             updateMoneyLabel();
             welcomeLabel.Text = string.Format("Welkom {0} in de FIFA gok app!", Program.guy.Name);
-         
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -159,11 +169,13 @@ namespace FifaGokApp
         private void LoadTeamsButton_Click(object sender, EventArgs e)
         {
             Program.guy.LoadGokker();
+            
         }
 
+        
         private void teamPanel_Paint(object sender, PaintEventArgs e)
         {
-
+            /*
             for (int i = 0; i < Program.fetchedTeams.Count() / 2; i++)
             {
                 //naam van de team aan de rechterkant
@@ -200,6 +212,7 @@ namespace FifaGokApp
                 TeamBName.Location = new Point(250, i * 30);
                 resultPanel.Controls.Add(TeamBName);
             }
+            */
         }
     }
 }
