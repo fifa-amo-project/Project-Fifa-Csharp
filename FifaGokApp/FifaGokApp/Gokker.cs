@@ -14,7 +14,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 namespace FifaGokApp
 {
-    class Gokker
+    public class Gokker
     {
         public string Name { get; set; }
         public int Credits { get; set; }
@@ -25,7 +25,12 @@ namespace FifaGokApp
             this.Name = name;
             this.Credits = credits;
         }
-
+        public Gokker(string name, int credits, bool hasBet)
+        {
+            this.Name = name;
+            this.Credits = credits;
+            this.Guyhasbet = hasBet;
+        }
         public void LoadGokker()
         {
             if (File.Exists(@".\InfoGokker.dat"))
@@ -33,7 +38,6 @@ namespace FifaGokApp
                 Program.guy = JsonConvert.DeserializeObject<Gokker>(File.ReadAllText(@".\InfoGokker.dat"));
             }
         }
-
 
         public void SaveGokker()
         {

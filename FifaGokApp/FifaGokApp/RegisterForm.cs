@@ -23,6 +23,10 @@ namespace FifaGokApp
             {
                 MessageBox.Show("doe kortere naam.");
             }
+            else if(nameTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("voer aub iets in");
+            }
             else
             {
                 Form1 mainform = new Form1();

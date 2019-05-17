@@ -21,6 +21,19 @@ namespace FifaGokApp
         public int creditAmount;
         Random rnd = new Random();
 
+        Label teamLabel;
+        TextBox scoreTeam;
+        TextBox scoreTeam2;
+        Label colonLabel;
+
+
+        Label TeamAName;
+        Label TeamAScore;
+        Label between;
+        Label TeamBScore;
+        Label TeamBName;
+
+
         public int randomNumber()
         {
             return rnd.Next(1, 11);
@@ -30,7 +43,7 @@ namespace FifaGokApp
         {
             InitializeComponent();
         }
-
+        
         public void updateMoneyLabel()
         {
             if (Application.OpenForms.OfType<Form1>().Count() == 1)
@@ -71,6 +84,8 @@ namespace FifaGokApp
             //pakt alle labels van teamlabel
             var labelsVar = teamPanel.Controls.OfType<Label>();
 
+            
+
             //alle teamlabels naar een list converten
             List<Label> labels = new List<Label>();
             foreach (Label label in labelsVar)
@@ -95,7 +110,7 @@ namespace FifaGokApp
                 }
                 if (isLeftSide)
                 {
-                    Label teamLabel = new Label();
+                    teamLabel = new Label();
                     teamLabel.AutoSize = true;
                     teamLabel.Text = Program.fetchedTeams[k].TeamName;
                     teamLabel.Location = new System.Drawing.Point(6, locationY += 30);
@@ -103,19 +118,19 @@ namespace FifaGokApp
                     teamPanel.Controls.Add(teamLabel);
 
                     // adding score section
-                    TextBox scoreTeam = new TextBox();
+                    scoreTeam = new TextBox();
                     scoreTeam.Size = new System.Drawing.Size(31, 20);
                     scoreTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     scoreTeam.Location = new System.Drawing.Point(155, locationTextBoxY += 30);
                     teamPanel.Controls.Add(scoreTeam);
 
-                    TextBox scoreTeam2 = new TextBox();
+                    scoreTeam2 = new TextBox();
                     scoreTeam2.Size = new System.Drawing.Size(31, 20);
                     scoreTeam2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     scoreTeam2.Location = new System.Drawing.Point(217, locationTextBoxY);
                     teamPanel.Controls.Add(scoreTeam2);
 
-                    Label colonLabel = new Label();
+                    colonLabel = new Label();
                     colonLabel.AutoSize = true;
                     colonLabel.Text = ":";
                     colonLabel.Location = new System.Drawing.Point(192, locationY);
@@ -126,7 +141,7 @@ namespace FifaGokApp
                 }
                 else
                 {
-                    Label teamLabel = new Label();
+                    teamLabel = new Label();
                     teamLabel.AutoSize = true;
                     teamLabel.Text = Program.fetchedTeams[k].TeamName;
                     teamLabel.Location = new System.Drawing.Point(280, locationY);
@@ -138,10 +153,20 @@ namespace FifaGokApp
             }
         }
 
+        public void Form1_Load(object sender, EventArgs e)
+        {
+            UpdateScreen();
+           
+            updateMoneyLabel();
+            welcomeLabel.Text = string.Format("Welkom {0} in de FIFA gok app!", Program.guy.Name);
+        }
+
+
+        Gokker[] gokker = new Gokker[1];
         private void betButton_Click(object sender, EventArgs e)
         {
             int parsedValue;
-            if (teamScore1.Text.Contains(""))
+            if (teamScore1.Text == string.Empty || teamScore2.Text == string.Empty)
             {
                 MessageBox.Show("voer aub een stand in");
             }
@@ -150,15 +175,49 @@ namespace FifaGokApp
                 MessageBox.Show("alleen nummers aub");
                 return;
             }
-        }
+            else if (creditAmount < creditNumericUpDown.Value)
+            {
+                MessageBox.Show("sorry je hebt niet genoeg geld om in te zetten");
+            }
+            else if(creditNumericUpDown.Value == 0)
+            {
+                MessageBox.Show("geen bedrag ingezet. voer aub een bedrag in");
+            }
+            else
+            {
+                int bettetAmount = (int)creditNumericUpDown.Value;
+                creditAmountLabel.Text = (creditAmount - bettetAmount).ToString();
 
 
-        public void Form1_Load(object sender, EventArgs e)
-        {
-            UpdateScreen();
-           
-            updateMoneyLabel();
-            welcomeLabel.Text = string.Format("Welkom {0} in de FIFA gok app!", Program.guy.Name);
+                
+                // hier komt de code voor het wedden
+                // is nog niet goed functioneel
+                if (scoreTeam.Text == TeamAScore.Text && scoreTeam2.Text == TeamBScore.Text)
+                {
+                    creditAmount = bettetAmount * 2 + creditAmount;
+                }
+                else
+                {
+                    MessageBox.Show("je bent je inzet kwijt, volgende keer beter.");
+                    creditAmount = creditAmount - bettetAmount;
+                }
+
+
+                gokker[0] = new Gokker(Program.guy.Name, creditAmount, false);
+
+
+                // na elke keer op de knop te klikken, hoort er een nieuwe stand bij elke team te komen.
+                for (int i = 0; i < Program.fetchedTeams.Count() / 2; i++)
+                {
+                    TeamAScore.Text = randomNumber().ToString();
+                    resultPanel.Controls.Add(TeamAScore);
+
+                    TeamBScore.Text = randomNumber().ToString();
+                    resultPanel.Controls.Add(TeamBScore);
+                }
+
+                creditNumericUpDown.Value = 0;
+            }
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -171,48 +230,48 @@ namespace FifaGokApp
             Program.guy.LoadGokker();
             
         }
-
         
+
         private void teamPanel_Paint(object sender, PaintEventArgs e)
         {
-            /*
+            
             for (int i = 0; i < Program.fetchedTeams.Count() / 2; i++)
             {
                 //naam van de team aan de rechterkant
-                Label TeamAName = new Label();
+                TeamAName = new Label();
                 TeamAName.Text = Program.fetchedTeams[i*2].TeamName;
                 TeamAName.Size = new Size(100, 30);
                 TeamAName.Location = new Point(0, i * 30);
                 resultPanel.Controls.Add(TeamAName);
 
                 //score van de team aan de linkerkant
-                Label TeamAScore = new Label();
+                TeamAScore = new Label();
                 TeamAScore.Text = randomNumber().ToString();
                 TeamAScore.Size = new Size(20, 30);
                 TeamAScore.Location = new Point(100, i * 30);
                 resultPanel.Controls.Add(TeamAScore);
-                
+
                 // dit is de ":"
-                Label between = new Label();
+                between = new Label();
                 between.Text = " : ";
                 between.Size = new Size(15, 30);
                 between.Location = new Point(125, i * 30);
                 resultPanel.Controls.Add(between);
 
                 //score van de team aan de rechterkant
-                Label TeamBScore = new Label();
+                TeamBScore = new Label();
                 TeamBScore.Text = randomNumber().ToString();
                 TeamBScore.Size = new Size(20, 30);
                 TeamBScore.Location = new Point(150, i * 30);
                 resultPanel.Controls.Add(TeamBScore);
 
                 //naam van de team aan de rechterkant
-                Label TeamBName = new Label();
+                TeamBName = new Label();
                 TeamBName.Text = Program.fetchedTeams[i * 2 + 1].TeamName;
                 TeamBName.Location = new Point(250, i * 30);
                 resultPanel.Controls.Add(TeamBName);
             }
-            */
+            
         }
     }
 }
