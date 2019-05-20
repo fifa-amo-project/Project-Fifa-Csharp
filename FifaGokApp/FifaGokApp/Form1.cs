@@ -33,6 +33,7 @@ namespace FifaGokApp
         Label TeamBScore;
         Label TeamBName;
 
+        List<int> scoresList;
 
         public int randomNumber()
         {
@@ -99,12 +100,11 @@ namespace FifaGokApp
             bool isLeftSide = true;
             int locationY = teamLabel1.Location.Y;
             int locationTextBoxY = teamScore1.Location.Y;
-            int i = 0;
-
+            List<int> scoresList = new List<int>();
 
             for (int k = 0; k < Program.fetchedTeams.Count(); k++)
             {
-                for (; i < labels.Count(); i++, k++)
+                for (int i = 0; i < labels.Count(); i++, k++)
                 {
                     labels[i].Text = Program.fetchedTeams[k].TeamName;
                 }
@@ -123,12 +123,14 @@ namespace FifaGokApp
                     scoreTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     scoreTeam.Location = new System.Drawing.Point(155, locationTextBoxY += 30);
                     teamPanel.Controls.Add(scoreTeam);
+                    scoresList.Add(int.Parse(scoreTeam.Text));
 
                     scoreTeam2 = new TextBox();
                     scoreTeam2.Size = new System.Drawing.Size(31, 20);
                     scoreTeam2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     scoreTeam2.Location = new System.Drawing.Point(217, locationTextBoxY);
                     teamPanel.Controls.Add(scoreTeam2);
+                    scoresList.Add(int.Parse(scoreTeam2.Text));
 
                     colonLabel = new Label();
                     colonLabel.AutoSize = true;
@@ -152,11 +154,11 @@ namespace FifaGokApp
                 }
             }
         }
-
+        
         public void Form1_Load(object sender, EventArgs e)
         {
             UpdateScreen();
-           
+
             updateMoneyLabel();
             welcomeLabel.Text = string.Format("Welkom {0} in de FIFA gok app!", Program.guy.Name);
         }
@@ -173,7 +175,6 @@ namespace FifaGokApp
             else if (!int.TryParse(teamScore1.Text, out parsedValue) || !int.TryParse(teamScore2.Text, out parsedValue))
             {
                 MessageBox.Show("alleen nummers aub");
-                return;
             }
             else if (creditAmount < creditNumericUpDown.Value)
             {
@@ -189,19 +190,22 @@ namespace FifaGokApp
                 creditAmountLabel.Text = (creditAmount - bettetAmount).ToString();
 
 
-                
                 // hier komt de code voor het wedden
                 // is nog niet goed functioneel
+                for (int i = 0; i <= scoresList.Count; i++)
+                {
+                    // hier komt nog code
+                }
                 if (scoreTeam.Text == TeamAScore.Text && scoreTeam2.Text == TeamBScore.Text)
                 {
                     creditAmount = bettetAmount * 2 + creditAmount;
+                    MessageBox.Show("gefeliciteerd je hebt je inzet gewonnen");
                 }
                 else
                 {
-                    MessageBox.Show("je bent je inzet kwijt, volgende keer beter.");
-                    creditAmount = creditAmount - bettetAmount;
+                   MessageBox.Show("je bent je inzet kwijt, volgende keer beter.");
+                   creditAmount = creditAmount - bettetAmount;
                 }
-
 
                 gokker[0] = new Gokker(Program.guy.Name, creditAmount, false);
 
@@ -227,17 +231,15 @@ namespace FifaGokApp
 
         private void LoadTeamsButton_Click(object sender, EventArgs e)
         {
-            Program.guy.LoadGokker();
-            
+            Program.guy.LoadGokker();   
         }
-        
 
         private void teamPanel_Paint(object sender, PaintEventArgs e)
         {
             
             for (int i = 0; i < Program.fetchedTeams.Count() / 2; i++)
             {
-                //naam van de team aan de rechterkant
+                //naam van de team aan de linkerkant
                 TeamAName = new Label();
                 TeamAName.Text = Program.fetchedTeams[i*2].TeamName;
                 TeamAName.Size = new Size(100, 30);
