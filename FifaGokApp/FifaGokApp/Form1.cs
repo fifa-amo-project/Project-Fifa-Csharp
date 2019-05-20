@@ -79,6 +79,99 @@ namespace FifaGokApp
             }
         }
 
+
+        public void Updatematches()
+        {
+            /*var labelsVar = teamPanel.Controls.OfType<Label>();
+            List<Label> team1label = new List<Label>();
+            foreach (Label label in labelsVar)
+            {
+                if (!label.Text.Contains(":"))
+                {
+                    team1label.Add(label);
+                }
+            }
+            List<Label> team2label = new List<Label>();
+            foreach (Label label in labelsVar)
+            {
+                if (!label.Text.Contains(":"))
+                {
+                    team2label.Add(label);
+                }
+            }*/
+            bool isLeftSide = true;
+            int locationY = teamLabel1.Location.Y;
+            int locationTextBoxY = teamScore1.Location.Y;
+            
+            int i = 0;
+
+            teamLabel1.Text = Program.fetchedmatch[0].team1;
+            teamLabel2.Text = Program.fetchedmatch[0].team2;
+
+            for (int j = 1; j < Program.fetchedmatch.Count(); j++)
+            {
+                
+                
+                
+                     
+                        
+
+                    Label teamlabel = new Label();
+                    teamlabel.AutoSize = true;
+                    teamlabel.Text = Program.fetchedmatch[j].team1;
+                    teamlabel.Location = new System.Drawing.Point(6, locationY += 30);
+                    teamlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    teamPanel.Controls.Add(teamlabel);
+
+                    Label team2Label = new Label();
+                    team2Label.AutoSize = true;
+                    team2Label.Text = Program.fetchedmatch[j].team2;
+                    team2Label.Location = new System.Drawing.Point(280, locationY);
+                    team2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    teamPanel.Controls.Add(team2Label);
+                //add score section
+                TextBox scoreTeam = new TextBox();
+                scoreTeam.Size = new System.Drawing.Size(31, 20);
+                scoreTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                scoreTeam.Location = new System.Drawing.Point(155, locationTextBoxY += 30);
+                teamPanel.Controls.Add(scoreTeam);
+
+                TextBox scoreTeam2 = new TextBox();
+                scoreTeam2.Size = new System.Drawing.Size(31, 20);
+                scoreTeam2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                scoreTeam2.Location = new System.Drawing.Point(217, locationTextBoxY);
+                teamPanel.Controls.Add(scoreTeam2);
+
+                Label colonLabel = new Label();
+                colonLabel.AutoSize = true;
+                colonLabel.Text = ":";
+                colonLabel.Location = new System.Drawing.Point(192, locationY);
+                colonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                teamPanel.Controls.Add(colonLabel);
+
+                isLeftSide = false;
+                /*if (isLeftSide)
+                    {
+                        
+
+
+                      
+
+
+                   
+
+                    }
+                    else
+                    {
+                    
+
+                    isLeftSide = true;
+                    }*/
+
+
+            }
+        }
+
         public void UpdateScreen()
         {
             //pakt alle labels van teamlabel
@@ -155,7 +248,10 @@ namespace FifaGokApp
 
         public void Form1_Load(object sender, EventArgs e)
         {
-            UpdateScreen();
+
+
+            Updatematches();
+            
            
             updateMoneyLabel();
             welcomeLabel.Text = string.Format("Welkom {0} in de FIFA gok app!", Program.guy.Name);
@@ -272,6 +368,16 @@ namespace FifaGokApp
                 resultPanel.Controls.Add(TeamBName);
             }
             
+        }
+
+        private void TeamLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TeamLabel2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

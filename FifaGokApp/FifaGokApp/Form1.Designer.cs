@@ -90,7 +90,7 @@
             // 
             // betButton
             // 
-            this.betButton.Location = new System.Drawing.Point(42, 364);
+            this.betButton.Location = new System.Drawing.Point(26, 669);
             this.betButton.Name = "betButton";
             this.betButton.Size = new System.Drawing.Size(124, 38);
             this.betButton.TabIndex = 14;
@@ -100,7 +100,7 @@
             // 
             // loadTeamsButton
             // 
-            this.loadTeamsButton.Location = new System.Drawing.Point(308, 355);
+            this.loadTeamsButton.Location = new System.Drawing.Point(282, 660);
             this.loadTeamsButton.Name = "loadTeamsButton";
             this.loadTeamsButton.Size = new System.Drawing.Size(120, 47);
             this.loadTeamsButton.TabIndex = 15;
@@ -117,27 +117,31 @@
             this.teamPanel.Controls.Add(this.teamScore1);
             this.teamPanel.Location = new System.Drawing.Point(42, 156);
             this.teamPanel.Name = "teamPanel";
-            this.teamPanel.Size = new System.Drawing.Size(386, 153);
+            this.teamPanel.Size = new System.Drawing.Size(386, 458);
             this.teamPanel.TabIndex = 17;
             this.teamPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.teamPanel_Paint);
             // 
             // teamLabel2
             // 
             this.teamLabel2.AutoSize = true;
-            this.teamLabel2.Location = new System.Drawing.Point(320, 15);
+            this.teamLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teamLabel2.Location = new System.Drawing.Point(280, 17);
             this.teamLabel2.Name = "teamLabel2";
-            this.teamLabel2.Size = new System.Drawing.Size(35, 13);
+            this.teamLabel2.Size = new System.Drawing.Size(46, 18);
             this.teamLabel2.TabIndex = 4;
             this.teamLabel2.Text = "label4";
+            this.teamLabel2.Click += new System.EventHandler(this.TeamLabel2_Click);
             // 
             // teamLabel1
             // 
             this.teamLabel1.AutoSize = true;
+            this.teamLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teamLabel1.Location = new System.Drawing.Point(12, 18);
             this.teamLabel1.Name = "teamLabel1";
-            this.teamLabel1.Size = new System.Drawing.Size(35, 13);
+            this.teamLabel1.Size = new System.Drawing.Size(46, 18);
             this.teamLabel1.TabIndex = 3;
             this.teamLabel1.Text = "label3";
+            this.teamLabel1.Click += new System.EventHandler(this.TeamLabel1_Click);
             // 
             // label2
             // 
@@ -164,7 +168,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(172, 355);
+            this.saveButton.Location = new System.Drawing.Point(156, 660);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(120, 47);
             this.saveButton.TabIndex = 18;
@@ -174,7 +178,7 @@
             // 
             // addGuyButton
             // 
-            this.addGuyButton.Location = new System.Drawing.Point(434, 355);
+            this.addGuyButton.Location = new System.Drawing.Point(417, 660);
             this.addGuyButton.Name = "addGuyButton";
             this.addGuyButton.Size = new System.Drawing.Size(164, 47);
             this.addGuyButton.TabIndex = 19;
@@ -184,7 +188,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 322);
+            this.label3.Location = new System.Drawing.Point(21, 637);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 13);
             this.label3.TabIndex = 20;
@@ -192,7 +196,7 @@
             // 
             // creditNumericUpDown
             // 
-            this.creditNumericUpDown.Location = new System.Drawing.Point(156, 320);
+            this.creditNumericUpDown.Location = new System.Drawing.Point(156, 637);
             this.creditNumericUpDown.Name = "creditNumericUpDown";
             this.creditNumericUpDown.Size = new System.Drawing.Size(104, 20);
             this.creditNumericUpDown.TabIndex = 21;
@@ -208,8 +212,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.ClientSize = new System.Drawing.Size(862, 442);
             this.Controls.Add(this.resultPanel);
+
+            this.ClientSize = new System.Drawing.Size(791, 730);
+
             this.Controls.Add(this.creditNumericUpDown);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.addGuyButton);

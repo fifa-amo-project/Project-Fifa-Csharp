@@ -24,21 +24,15 @@ namespace FifaGokApp
         [JsonProperty("points")]
         public string points { get; set; }
 
+
         public Record(string teamName)
         {
             TeamName = teamName;
         }
+
+        ///matches 
+        ///
+
+
     }
-    /* class TeamFetch
-     {
-
-
-        /* public class RootObject
-         {
-             [JsonProperty("records")]
-             public List<Record> records { get; set; }
-         }
-
-
-     }*/
 }
