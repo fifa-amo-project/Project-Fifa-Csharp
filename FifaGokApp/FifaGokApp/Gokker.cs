@@ -18,18 +18,37 @@ namespace FifaGokApp
     {
         public string Name { get; set; }
         public int Credits { get; set; }
-        public bool Guyhasbet = false;
+        public Bet Mybet = new Bet();
+        public bool Guyhasbet  { get; set; }
+        public int BetAmount { get; set; }
 
-        public Gokker(string name, int credits)
-        {
-            this.Name = name;
-            this.Credits = credits;
-        }
-        public Gokker(string name, int credits, bool hasBet)
+        public Gokker(string name, int credits, bool hasBet, int betamount)
         {
             this.Name = name;
             this.Credits = credits;
             this.Guyhasbet = hasBet;
+            this.BetAmount = betamount;
+        }
+
+        public bool PlaceBet(int Amount, int Match)
+        {
+            if(Credits >= Amount)
+            {
+                Mybet.Amount += Amount;
+                Credits -= Amount;
+                Mybet.Match = Match;
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("U heeft niet genoeg geld om iets in te zetten");
+                return false;
+            }
+        }
+
+        public void Collect(int winner)
+        {
+            Mybet.Payout(winner);
         }
         public void LoadGokker()
         {

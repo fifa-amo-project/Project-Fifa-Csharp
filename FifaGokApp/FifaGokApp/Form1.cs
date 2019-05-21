@@ -33,6 +33,7 @@ namespace FifaGokApp
         Label TeamBScore;
         Label TeamBName;
 
+        public int GuyThatBets { get; set; }
 
         public int randomNumber()
         {
@@ -105,27 +106,28 @@ namespace FifaGokApp
             
             int i = 0;
 
-            teamLabel1.Text = Program.fetchedmatch[0].team1;
-            teamLabel2.Text = Program.fetchedmatch[0].team2;
+            teamLabel1.Text = Program.fifa.match[0].team1;
+            teamLabel2.Text = Program.fifa.match[0].team2;
 
-            for (int j = 1; j < Program.fetchedmatch.Count(); j++)
+            for (int j = 1; j < Program.fifa.match.Count; j++)
             {
                 
                 
                 
-                     
-                        
+               
 
                     Label teamlabel = new Label();
                     teamlabel.AutoSize = true;
-                    teamlabel.Text = Program.fetchedmatch[j].team1;
+                    teamlabel.Text = Program.fifa.match[j].team1;
+                
+
                     teamlabel.Location = new System.Drawing.Point(6, locationY += 30);
                     teamlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     teamPanel.Controls.Add(teamlabel);
 
                     Label team2Label = new Label();
                     team2Label.AutoSize = true;
-                    team2Label.Text = Program.fetchedmatch[j].team2;
+                    team2Label.Text = Program.fifa.match[j].team2;
                     team2Label.Location = new System.Drawing.Point(280, locationY);
                     team2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     teamPanel.Controls.Add(team2Label);
@@ -195,17 +197,17 @@ namespace FifaGokApp
             int i = 0;
 
 
-            for (int k = 0; k < Program.fetchedTeams.Count(); k++)
+            for (int k = 0; k < Program.fifa.team.Count; k++)
             {
                 for (; i < labels.Count(); i++, k++)
                 {
-                    labels[i].Text = Program.fetchedTeams[k].TeamName;
+                    labels[i].Text = Program.fifa.team[k].TeamName;
                 }
                 if (isLeftSide)
                 {
                     teamLabel = new Label();
                     teamLabel.AutoSize = true;
-                    teamLabel.Text = Program.fetchedTeams[k].TeamName;
+                    teamLabel.Text = Program.fifa.team[k].TeamName;
                     teamLabel.Location = new System.Drawing.Point(6, locationY += 30);
                     teamLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     teamPanel.Controls.Add(teamLabel);
@@ -236,7 +238,7 @@ namespace FifaGokApp
                 {
                     teamLabel = new Label();
                     teamLabel.AutoSize = true;
-                    teamLabel.Text = Program.fetchedTeams[k].TeamName;
+                    teamLabel.Text = Program.fifa.team[k].TeamName;
                     teamLabel.Location = new System.Drawing.Point(280, locationY);
                     teamLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     teamPanel.Controls.Add(teamLabel);
@@ -282,28 +284,27 @@ namespace FifaGokApp
             else
             {
                 int bettetAmount = (int)creditNumericUpDown.Value;
+                for (int i = 0; i < Program.fifa.match.Count; i++)
+                {
+                    GuyThatBets = 1;
+                    int currentMatch = Program.fifa.match[i].id;
+                    gokker[GuyThatBets].PlaceBet(bettetAmount, currentMatch);
+                }
+                
                 creditAmountLabel.Text = (creditAmount - bettetAmount).ToString();
 
 
-                
+
                 // hier komt de code voor het wedden
                 // is nog niet goed functioneel
-                if (scoreTeam.Text == TeamAScore.Text && scoreTeam2.Text == TeamBScore.Text)
-                {
-                    creditAmount = bettetAmount * 2 + creditAmount;
-                }
-                else
-                {
-                    MessageBox.Show("je bent je inzet kwijt, volgende keer beter.");
-                    creditAmount = creditAmount - bettetAmount;
-                }
+                
 
 
-                gokker[0] = new Gokker(Program.guy.Name, creditAmount, false);
+                
 
 
                 // na elke keer op de knop te klikken, hoort er een nieuwe stand bij elke team te komen.
-                for (int i = 0; i < Program.fetchedTeams.Count() / 2; i++)
+                for (int i = 0; i < Program.fifa.team.Count / 2; i++)
                 {
                     TeamAScore.Text = randomNumber().ToString();
                     resultPanel.Controls.Add(TeamAScore);
@@ -314,6 +315,12 @@ namespace FifaGokApp
 
                 creditNumericUpDown.Value = 0;
             }
+        }
+
+
+        public void CheckBet()
+        {
+           
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -331,11 +338,11 @@ namespace FifaGokApp
         private void teamPanel_Paint(object sender, PaintEventArgs e)
         {
             
-            for (int i = 0; i < Program.fetchedTeams.Count() / 2; i++)
+            for (int i = 0; i < Program.fifa.team.Count() / 2; i++)
             {
                 //naam van de team aan de rechterkant
                 TeamAName = new Label();
-                TeamAName.Text = Program.fetchedTeams[i*2].TeamName;
+                TeamAName.Text = Program.fifa.team[i*2].TeamName;
                 TeamAName.Size = new Size(100, 30);
                 TeamAName.Location = new Point(0, i * 30);
                 resultPanel.Controls.Add(TeamAName);
@@ -363,7 +370,7 @@ namespace FifaGokApp
 
                 //naam van de team aan de rechterkant
                 TeamBName = new Label();
-                TeamBName.Text = Program.fetchedTeams[i * 2 + 1].TeamName;
+                TeamBName.Text = Program.fifa.team[i * 2 + 1].TeamName;
                 TeamBName.Location = new Point(250, i * 30);
                 resultPanel.Controls.Add(TeamBName);
             }
