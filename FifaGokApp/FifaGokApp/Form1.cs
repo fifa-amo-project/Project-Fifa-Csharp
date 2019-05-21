@@ -33,7 +33,6 @@ namespace FifaGokApp
         Label TeamBScore;
         Label TeamBName;
 
-        public int GuyThatBets { get; set; }
 
         public int randomNumber()
         {
@@ -119,8 +118,6 @@ namespace FifaGokApp
                     Label teamlabel = new Label();
                     teamlabel.AutoSize = true;
                     teamlabel.Text = Program.fifa.match[j].team1;
-                
-
                     teamlabel.Location = new System.Drawing.Point(6, locationY += 30);
                     teamlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     teamPanel.Controls.Add(teamlabel);
@@ -284,27 +281,28 @@ namespace FifaGokApp
             else
             {
                 int bettetAmount = (int)creditNumericUpDown.Value;
-                for (int i = 0; i < Program.fifa.match.Count; i++)
-                {
-                    GuyThatBets = 1;
-                    int currentMatch = Program.fifa.match[i].id;
-                    gokker[GuyThatBets].PlaceBet(bettetAmount, currentMatch);
-                }
-                
                 creditAmountLabel.Text = (creditAmount - bettetAmount).ToString();
 
 
-
+                
                 // hier komt de code voor het wedden
                 // is nog niet goed functioneel
-                
+                if (scoreTeam.Text == TeamAScore.Text && scoreTeam2.Text == TeamBScore.Text)
+                {
+                    creditAmount = bettetAmount * 2 + creditAmount;
+                }
+                else
+                {
+                    MessageBox.Show("je bent je inzet kwijt, volgende keer beter.");
+                    creditAmount = creditAmount - bettetAmount;
+                }
 
 
                 
 
 
                 // na elke keer op de knop te klikken, hoort er een nieuwe stand bij elke team te komen.
-                for (int i = 0; i < Program.fifa.team.Count / 2; i++)
+                for (int i = 0; i < Program.fifa.team.Count() / 2; i++)
                 {
                     TeamAScore.Text = randomNumber().ToString();
                     resultPanel.Controls.Add(TeamAScore);
@@ -315,12 +313,6 @@ namespace FifaGokApp
 
                 creditNumericUpDown.Value = 0;
             }
-        }
-
-
-        public void CheckBet()
-        {
-           
         }
 
         private void saveButton_Click(object sender, EventArgs e)
