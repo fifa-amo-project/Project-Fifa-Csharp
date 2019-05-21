@@ -12,7 +12,7 @@ using System.IO;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-
+using System.Diagnostics;
 
 namespace FifaGokApp
 {
@@ -33,7 +33,7 @@ namespace FifaGokApp
         Label TeamBScore;
         Label TeamBName;
 
-        List<int> scoresList;
+        List<string> scoresList;
 
         public int randomNumber()
         {
@@ -69,7 +69,7 @@ namespace FifaGokApp
                     string url = "http://jaibreyonlourens.nl/Project-Fifa-PHP/API/read.php";
                     HttpResponseMessage response = await httpClient.GetAsync(url);
                     response.EnsureSuccessStatusCode();
-
+                    
                     jsonTeams = await response.Content.ReadAsStringAsync();
                     return jsonTeams;
                 }
@@ -100,11 +100,12 @@ namespace FifaGokApp
             bool isLeftSide = true;
             int locationY = teamLabel1.Location.Y;
             int locationTextBoxY = teamScore1.Location.Y;
-            List<int> scoresList = new List<int>();
+            int i = 0;
+            scoresList = new List<string>();
 
             for (int k = 0; k < Program.fetchedTeams.Count(); k++)
             {
-                for (int i = 0; i < labels.Count(); i++, k++)
+                for (; i < labels.Count(); i++, k++)
                 {
                     labels[i].Text = Program.fetchedTeams[k].TeamName;
                 }
@@ -123,14 +124,14 @@ namespace FifaGokApp
                     scoreTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     scoreTeam.Location = new System.Drawing.Point(155, locationTextBoxY += 30);
                     teamPanel.Controls.Add(scoreTeam);
-                    scoresList.Add(int.Parse(scoreTeam.Text));
+                    scoresList.Add(scoreTeam.Text);
 
                     scoreTeam2 = new TextBox();
                     scoreTeam2.Size = new System.Drawing.Size(31, 20);
                     scoreTeam2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     scoreTeam2.Location = new System.Drawing.Point(217, locationTextBoxY);
                     teamPanel.Controls.Add(scoreTeam2);
-                    scoresList.Add(int.Parse(scoreTeam2.Text));
+                    scoresList.Add(scoreTeam2.Text);
 
                     colonLabel = new Label();
                     colonLabel.AutoSize = true;
@@ -192,9 +193,11 @@ namespace FifaGokApp
 
                 // hier komt de code voor het wedden
                 // is nog niet goed functioneel
-                for (int i = 0; i <= scoresList.Count; i++)
+                for (int i = 0; i <= scoresList.Count() / 2; i++)
                 {
                     // hier komt nog code
+
+
                 }
                 if (scoreTeam.Text == TeamAScore.Text && scoreTeam2.Text == TeamBScore.Text)
                 {
@@ -275,5 +278,5 @@ namespace FifaGokApp
             }
             
         }
-    }
+}
 }

@@ -12,6 +12,7 @@ using System.IO;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 
 namespace FifaGokApp
 {
@@ -21,6 +22,8 @@ namespace FifaGokApp
         /// The main entry point for the application.
         /// </summary>
         public static string json = new WebClient().DownloadString("http://jaibreyonlourens.nl/Project-Fifa-PHP/API/read.php");
+        
+
         public static Record[] fetchedTeams = JsonConvert.DeserializeObject<Record[]>(json);
         public static Gokker guy = new Gokker("", 50);
         [STAThread]
