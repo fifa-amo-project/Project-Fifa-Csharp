@@ -26,13 +26,8 @@ namespace FifaGokApp
         TextBox scoreTeam2;
         Label colonLabel;
 
-
-        Label TeamAName;
-        Label TeamAScore;
-        Label between;
-        Label TeamBScore;
-        Label TeamBName;
-
+        Label officialScore;
+        Label officialScore2;
 
         public int randomNumber()
         {
@@ -87,14 +82,16 @@ namespace FifaGokApp
             int locationY = teamLabel1.Location.Y;
             int locationTextBoxY = teamScore1.Location.Y;
             
-            int i = 0;
+
 
             teamLabel1.Text = Program.fifa.match[0].team1;
             teamLabel2.Text = Program.fifa.match[0].team2;
+            
+            
 
             for (int j = 1; j < Program.fifa.match.Count; j++)
             {
-              
+
                     Label teamlabel = new Label();
                     teamlabel.AutoSize = true;
                     teamlabel.Text = Program.fifa.match[j].team1;
@@ -129,7 +126,7 @@ namespace FifaGokApp
                 teamPanel.Controls.Add(colonLabel);
 
                 isLeftSide = false;
-     
+
             }
         }
 
@@ -241,11 +238,18 @@ namespace FifaGokApp
                 int bettetAmount = (int)creditNumericUpDown.Value;
                 creditAmountLabel.Text = (creditAmount - bettetAmount).ToString();
 
+                // na elke keer op de knop te klikken, hoort er een nieuwe stand bij elke team te komen.
+                for (int i = 0; i < Program.fifa.team.Count / 2; i++)
+                {
+                    officialScore.Text = randomNumber().ToString();
 
-                
+                    officialScore2.Text = randomNumber().ToString();
+                }
+
+
                 // hier komt de code voor het wedden
                 // is nog niet goed functioneel
-                if (scoreTeam.Text == TeamAScore.Text && scoreTeam2.Text == TeamBScore.Text)
+                if (scoreTeam.Text ==  officialScore.Text && scoreTeam2.Text == officialScore2.Text)
                 {
                     creditAmount = bettetAmount * 2 + creditAmount;
                 }
@@ -256,17 +260,14 @@ namespace FifaGokApp
                 }
 
 
-                
-
-
                 // na elke keer op de knop te klikken, hoort er een nieuwe stand bij elke team te komen.
                 for (int i = 0; i < Program.fifa.team.Count / 2; i++)
                 {
-                    TeamAScore.Text = randomNumber().ToString();
-                    resultPanel.Controls.Add(TeamAScore);
+                    officialScore.Text = randomNumber().ToString();
+                    resultPanel.Controls.Add(officialScore);
 
-                    TeamBScore.Text = randomNumber().ToString();
-                    resultPanel.Controls.Add(TeamBScore);
+                    officialScore2.Text = randomNumber().ToString();
+                    resultPanel.Controls.Add(officialScore2);
                 }
 
                 creditNumericUpDown.Value = 0;
@@ -288,9 +289,7 @@ namespace FifaGokApp
         private void teamPanel_Paint(object sender, PaintEventArgs e)
         {
 
-            
-
-          
+   
         }
 
         private void TeamLabel1_Click(object sender, EventArgs e)

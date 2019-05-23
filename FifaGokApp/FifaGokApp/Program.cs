@@ -30,10 +30,6 @@ namespace FifaGokApp
         
         public static Gokker guy = new Gokker("", 50, false, 0);
 
-        public static string json = new WebClient().DownloadString("http://jaibreyonlourens.nl/Project-Fifa-PHP/API/read.php");
-        
-
-        public static Record[] fetchedTeams = JsonConvert.DeserializeObject<Record[]>(json);
         
 
         [STAThread]
