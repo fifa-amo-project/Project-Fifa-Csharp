@@ -26,13 +26,8 @@ namespace FifaGokApp
         TextBox scoreTeam2;
         Label colonLabel;
 
-
-        Label TeamAName;
-        Label TeamAScore;
-        Label between;
-        Label TeamBScore;
-        Label TeamBName;
-
+        Label officialScore;
+        Label officialScore2;
 
         public int randomNumber()
         {
@@ -103,18 +98,16 @@ namespace FifaGokApp
             int locationY = teamLabel1.Location.Y;
             int locationTextBoxY = teamScore1.Location.Y;
             
-            int i = 0;
+
 
             teamLabel1.Text = Program.fifa.match[0].team1;
             teamLabel2.Text = Program.fifa.match[0].team2;
+            
+            
 
             for (int j = 1; j < Program.fifa.match.Count; j++)
             {
                 
-                
-                
-               
-
                     Label teamlabel = new Label();
                     teamlabel.AutoSize = true;
                     teamlabel.Text = Program.fifa.match[j].team1;
@@ -151,23 +144,12 @@ namespace FifaGokApp
                 isLeftSide = false;
                 /*if (isLeftSide)
                     {
-                        
-
-
-                      
-
-
-                   
-
                     }
                     else
                     {
                     
-
                     isLeftSide = true;
                     }*/
-
-
             }
         }
 
@@ -247,11 +229,7 @@ namespace FifaGokApp
 
         public void Form1_Load(object sender, EventArgs e)
         {
-
-
             Updatematches();
-            
-           
             updateMoneyLabel();
             welcomeLabel.Text = string.Format("Welkom {0} in de FIFA gok app!", Program.guy.Name);
         }
@@ -283,11 +261,18 @@ namespace FifaGokApp
                 int bettetAmount = (int)creditNumericUpDown.Value;
                 creditAmountLabel.Text = (creditAmount - bettetAmount).ToString();
 
+                // na elke keer op de knop te klikken, hoort er een nieuwe stand bij elke team te komen.
+                for (int i = 0; i < Program.fifa.team.Count / 2; i++)
+                {
+                    officialScore.Text = randomNumber().ToString();
 
-                
+                    officialScore2.Text = randomNumber().ToString();
+                }
+
+
                 // hier komt de code voor het wedden
                 // is nog niet goed functioneel
-                if (scoreTeam.Text == TeamAScore.Text && scoreTeam2.Text == TeamBScore.Text)
+                if (scoreTeam.Text ==  officialScore.Text && scoreTeam2.Text == officialScore2.Text)
                 {
                     creditAmount = bettetAmount * 2 + creditAmount;
                 }
@@ -298,17 +283,14 @@ namespace FifaGokApp
                 }
 
 
-                
-
-
                 // na elke keer op de knop te klikken, hoort er een nieuwe stand bij elke team te komen.
                 for (int i = 0; i < Program.fifa.team.Count() / 2; i++)
                 {
-                    TeamAScore.Text = randomNumber().ToString();
-                    resultPanel.Controls.Add(TeamAScore);
+                    officialScore.Text = randomNumber().ToString();
+                    resultPanel.Controls.Add(officialScore);
 
-                    TeamBScore.Text = randomNumber().ToString();
-                    resultPanel.Controls.Add(TeamBScore);
+                    officialScore2.Text = randomNumber().ToString();
+                    resultPanel.Controls.Add(officialScore2);
                 }
 
                 creditNumericUpDown.Value = 0;
@@ -330,42 +312,6 @@ namespace FifaGokApp
         private void teamPanel_Paint(object sender, PaintEventArgs e)
         {
             
-            for (int i = 0; i < Program.fifa.team.Count() / 2; i++)
-            {
-                //naam van de team aan de rechterkant
-                TeamAName = new Label();
-                TeamAName.Text = Program.fifa.team[i*2].TeamName;
-                TeamAName.Size = new Size(100, 30);
-                TeamAName.Location = new Point(0, i * 30);
-                resultPanel.Controls.Add(TeamAName);
-
-                //score van de team aan de linkerkant
-                TeamAScore = new Label();
-                TeamAScore.Text = randomNumber().ToString();
-                TeamAScore.Size = new Size(20, 30);
-                TeamAScore.Location = new Point(100, i * 30);
-                resultPanel.Controls.Add(TeamAScore);
-
-                // dit is de ":"
-                between = new Label();
-                between.Text = " : ";
-                between.Size = new Size(15, 30);
-                between.Location = new Point(125, i * 30);
-                resultPanel.Controls.Add(between);
-
-                //score van de team aan de rechterkant
-                TeamBScore = new Label();
-                TeamBScore.Text = randomNumber().ToString();
-                TeamBScore.Size = new Size(20, 30);
-                TeamBScore.Location = new Point(150, i * 30);
-                resultPanel.Controls.Add(TeamBScore);
-
-                //naam van de team aan de rechterkant
-                TeamBName = new Label();
-                TeamBName.Text = Program.fifa.team[i * 2 + 1].TeamName;
-                TeamBName.Location = new Point(250, i * 30);
-                resultPanel.Controls.Add(TeamBName);
-            }
             
         }
 

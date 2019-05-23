@@ -55,7 +55,7 @@ namespace FifaGokApp
 
 
     }
-    public  class Fifa
+    public class Fifa
    {
 
         public List<Match> match = new List<Match>();
