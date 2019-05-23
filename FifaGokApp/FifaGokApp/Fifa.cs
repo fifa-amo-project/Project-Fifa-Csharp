@@ -52,7 +52,11 @@ namespace FifaGokApp
         [JsonProperty("uitslag")]
         public string uitslag { get; set; }
 
+        [JsonProperty("result_team1")]
+        public string result_team1 { get; set; }
 
+        [JsonProperty("result_team2")]
+        public string result_team2 { get; set; }
 
     }
     public class Fifa

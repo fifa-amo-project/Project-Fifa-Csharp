@@ -60,7 +60,7 @@ namespace FifaGokApp
             {
                 try
                 {
-                    string url = "http://jaibreyonlourens.nl/Project-Fifa-PHP/API/read.php";
+                    string url = "http://jaibreyonlourens.nl/Project-Fifa-PHP/API/readmatch.php?key=Gr03n3Cactus";
                     HttpResponseMessage response = await httpClient.GetAsync(url);
                     response.EnsureSuccessStatusCode();
 
@@ -237,39 +237,12 @@ namespace FifaGokApp
             {
                 int bettetAmount = (int)creditNumericUpDown.Value;
                 creditAmountLabel.Text = (creditAmount - bettetAmount).ToString();
-
-                // na elke keer op de knop te klikken, hoort er een nieuwe stand bij elke team te komen.
-                for (int i = 0; i < Program.fifa.team.Count / 2; i++)
+                
+                for (int i = 0; i < Program.fifa.match.Count(); i++)
                 {
-                    officialScore.Text = randomNumber().ToString();
-
-                    officialScore2.Text = randomNumber().ToString();
+                    MessageBox.Show(Program.guy.Name + " heeft €" + bettetAmount.ToString() + " ingezet op " +
+                        Program.fifa.match[i].team1 + " tegen " + Program.fifa.match[i].team2);
                 }
-
-
-                // hier komt de code voor het wedden
-                // is nog niet goed functioneel
-                if (scoreTeam.Text ==  officialScore.Text && scoreTeam2.Text == officialScore2.Text)
-                {
-                    creditAmount = bettetAmount * 2 + creditAmount;
-                }
-                else
-                {
-                    MessageBox.Show("je bent je inzet kwijt, volgende keer beter.");
-                    creditAmount = creditAmount - bettetAmount;
-                }
-
-
-                // na elke keer op de knop te klikken, hoort er een nieuwe stand bij elke team te komen.
-                for (int i = 0; i < Program.fifa.team.Count / 2; i++)
-                {
-                    officialScore.Text = randomNumber().ToString();
-                    resultPanel.Controls.Add(officialScore);
-
-                    officialScore2.Text = randomNumber().ToString();
-                    resultPanel.Controls.Add(officialScore2);
-                }
-
                 creditNumericUpDown.Value = 0;
             }
         }
