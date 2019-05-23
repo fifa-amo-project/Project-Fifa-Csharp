@@ -9,26 +9,9 @@ namespace FifaGokApp
 {
     public class Record
     {
-        [JsonProperty("id")]
-        public string id { get; set; }
+    
 
-        [JsonProperty("teamname")]
-        public string TeamName { get; set; }
-
-        [JsonProperty("players")]
-        public string Players { get; set; }
-
-        [JsonProperty("created_by")]
-        public string created_by { get; set; }
-
-        [JsonProperty("points")]
-        public string points { get; set; }
-
-
-        public Record(string teamName)
-        {
-            TeamName = teamName;
-        }
+       
 
         ///matches 
         ///

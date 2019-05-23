@@ -119,7 +119,6 @@
             this.teamPanel.Name = "teamPanel";
             this.teamPanel.Size = new System.Drawing.Size(386, 458);
             this.teamPanel.TabIndex = 17;
-            this.teamPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.teamPanel_Paint);
             // 
             // teamLabel2
             // 
@@ -212,12 +211,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            this.ClientSize = new System.Drawing.Size(862, 442);
-            this.Controls.Add(this.resultPanel);
-
             this.ClientSize = new System.Drawing.Size(791, 730);
-
+            this.Controls.Add(this.resultPanel);
             this.Controls.Add(this.creditNumericUpDown);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.addGuyButton);

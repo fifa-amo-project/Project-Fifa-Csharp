@@ -82,23 +82,7 @@ namespace FifaGokApp
 
         public void Updatematches()
         {
-            /*var labelsVar = teamPanel.Controls.OfType<Label>();
-            List<Label> team1label = new List<Label>();
-            foreach (Label label in labelsVar)
-            {
-                if (!label.Text.Contains(":"))
-                {
-                    team1label.Add(label);
-                }
-            }
-            List<Label> team2label = new List<Label>();
-            foreach (Label label in labelsVar)
-            {
-                if (!label.Text.Contains(":"))
-                {
-                    team2label.Add(label);
-                }
-            }*/
+            
             bool isLeftSide = true;
             int locationY = teamLabel1.Location.Y;
             int locationTextBoxY = teamScore1.Location.Y;
@@ -110,11 +94,7 @@ namespace FifaGokApp
 
             for (int j = 1; j < Program.fifa.match.Count; j++)
             {
-                
-                
-                
-               
-
+              
                     Label teamlabel = new Label();
                     teamlabel.AutoSize = true;
                     teamlabel.Text = Program.fifa.match[j].team1;
@@ -149,25 +129,7 @@ namespace FifaGokApp
                 teamPanel.Controls.Add(colonLabel);
 
                 isLeftSide = false;
-                /*if (isLeftSide)
-                    {
-                        
-
-
-                      
-
-
-                   
-
-                    }
-                    else
-                    {
-                    
-
-                    isLeftSide = true;
-                    }*/
-
-
+     
             }
         }
 
@@ -247,11 +209,7 @@ namespace FifaGokApp
 
         public void Form1_Load(object sender, EventArgs e)
         {
-
-
             Updatematches();
-            
-           
             updateMoneyLabel();
             welcomeLabel.Text = string.Format("Welkom {0} in de FIFA gok app!", Program.guy.Name);
         }
@@ -302,7 +260,7 @@ namespace FifaGokApp
 
 
                 // na elke keer op de knop te klikken, hoort er een nieuwe stand bij elke team te komen.
-                for (int i = 0; i < Program.fifa.team.Count() / 2; i++)
+                for (int i = 0; i < Program.fifa.team.Count / 2; i++)
                 {
                     TeamAScore.Text = randomNumber().ToString();
                     resultPanel.Controls.Add(TeamAScore);
@@ -329,44 +287,10 @@ namespace FifaGokApp
 
         private void teamPanel_Paint(object sender, PaintEventArgs e)
         {
+
             
-            for (int i = 0; i < Program.fifa.team.Count() / 2; i++)
-            {
-                //naam van de team aan de rechterkant
-                TeamAName = new Label();
-                TeamAName.Text = Program.fifa.team[i*2].TeamName;
-                TeamAName.Size = new Size(100, 30);
-                TeamAName.Location = new Point(0, i * 30);
-                resultPanel.Controls.Add(TeamAName);
 
-                //score van de team aan de linkerkant
-                TeamAScore = new Label();
-                TeamAScore.Text = randomNumber().ToString();
-                TeamAScore.Size = new Size(20, 30);
-                TeamAScore.Location = new Point(100, i * 30);
-                resultPanel.Controls.Add(TeamAScore);
-
-                // dit is de ":"
-                between = new Label();
-                between.Text = " : ";
-                between.Size = new Size(15, 30);
-                between.Location = new Point(125, i * 30);
-                resultPanel.Controls.Add(between);
-
-                //score van de team aan de rechterkant
-                TeamBScore = new Label();
-                TeamBScore.Text = randomNumber().ToString();
-                TeamBScore.Size = new Size(20, 30);
-                TeamBScore.Location = new Point(150, i * 30);
-                resultPanel.Controls.Add(TeamBScore);
-
-                //naam van de team aan de rechterkant
-                TeamBName = new Label();
-                TeamBName.Text = Program.fifa.team[i * 2 + 1].TeamName;
-                TeamBName.Location = new Point(250, i * 30);
-                resultPanel.Controls.Add(TeamBName);
-            }
-            
+          
         }
 
         private void TeamLabel1_Click(object sender, EventArgs e)

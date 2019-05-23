@@ -21,11 +21,11 @@ namespace FifaGokApp
             //Hier doe je dat je niet meer dan 20 karakters kan invoeren, anders krijg je waarschuwing en kan je niet verder.
             if (nameTextBox.Text.Length > 20)
             {
-                MessageBox.Show("doe kortere naam.");
+                MessageBox.Show("Voer alstublieft een kortere naam in.");
             }
             else if(nameTextBox.Text.Length == 0)
             {
-                MessageBox.Show("voer aub iets in");
+                MessageBox.Show("Voer aub een naam in.");
             }
             else
             {

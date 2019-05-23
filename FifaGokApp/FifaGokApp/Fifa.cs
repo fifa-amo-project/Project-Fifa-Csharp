@@ -68,13 +68,13 @@ namespace FifaGokApp
         }
         public void GetMatches()
         {
-            string strMatch = new WebClient().DownloadString("http://jaibreyonlourens.nl/Project-Fifa-PHP/API/readmatch.php");
+            string strMatch = new WebClient().DownloadString("http://jaibreyonlourens.nl/Project-Fifa-PHP/API/readmatch.php?key=Gr03n3Cactus");
              match = JsonConvert.DeserializeObject<List<Match>>(strMatch);
         }
 
         public void GetTeams()
         {
-            string strTeams = new WebClient().DownloadString("http://jaibreyonlourens.nl/Project-Fifa-PHP/API/read.php");
+            string strTeams = new WebClient().DownloadString("http://jaibreyonlourens.nl/Project-Fifa-PHP/API/read.php?key=Gr03n3Cactus");
              team = JsonConvert.DeserializeObject<List<Team>>(strTeams);
         }
 
