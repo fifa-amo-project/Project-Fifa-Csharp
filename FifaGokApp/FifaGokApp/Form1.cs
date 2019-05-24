@@ -237,11 +237,14 @@ namespace FifaGokApp
             {
                 int bettetAmount = (int)creditNumericUpDown.Value;
                 creditAmountLabel.Text = (creditAmount - bettetAmount).ToString();
+
                 
                 for (int i = 0; i < Program.fifa.match.Count(); i++)
                 {
-                    MessageBox.Show(Program.guy.Name + " heeft €" + bettetAmount.ToString() + " ingezet op " +
-                        Program.fifa.match[i].team1 + " tegen " + Program.fifa.match[i].team2);
+                    MessageBox.Show(
+                        Program.guy.Name + " heeft €" + bettetAmount.ToString() + " ingezet op " +
+                        Program.fifa.match[i].team1 + " tegen " + Program.fifa.match[i].team2
+                    );
                 }
                 creditNumericUpDown.Value = 0;
             }

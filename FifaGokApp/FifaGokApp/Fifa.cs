@@ -43,6 +43,7 @@ namespace FifaGokApp
 
         [JsonProperty("id")]
         public int id { get; set; }
+
         [JsonProperty("team1")]
         public string team1 { get; set; }
 
@@ -53,10 +54,10 @@ namespace FifaGokApp
         public string uitslag { get; set; }
 
         [JsonProperty("result_team1")]
-        public string result_team1 { get; set; }
+        public int result_team1 { get; set; }
 
         [JsonProperty("result_team2")]
-        public string result_team2 { get; set; }
+        public int result_team2 { get; set; }
 
     }
     public class Fifa

@@ -90,7 +90,7 @@
             // 
             // betButton
             // 
-            this.betButton.Location = new System.Drawing.Point(31, 485);
+            this.betButton.Location = new System.Drawing.Point(38, 583);
             this.betButton.Name = "betButton";
             this.betButton.Size = new System.Drawing.Size(126, 47);
             this.betButton.TabIndex = 14;
@@ -100,7 +100,7 @@
             // 
             // loadTeamsButton
             // 
-            this.loadTeamsButton.Location = new System.Drawing.Point(289, 485);
+            this.loadTeamsButton.Location = new System.Drawing.Point(296, 583);
             this.loadTeamsButton.Name = "loadTeamsButton";
             this.loadTeamsButton.Size = new System.Drawing.Size(120, 47);
             this.loadTeamsButton.TabIndex = 15;
@@ -117,7 +117,7 @@
             this.teamPanel.Controls.Add(this.teamScore1);
             this.teamPanel.Location = new System.Drawing.Point(42, 156);
             this.teamPanel.Name = "teamPanel";
-            this.teamPanel.Size = new System.Drawing.Size(386, 289);
+            this.teamPanel.Size = new System.Drawing.Size(386, 398);
             this.teamPanel.TabIndex = 17;
             // 
             // teamLabel2
@@ -167,7 +167,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(163, 485);
+            this.saveButton.Location = new System.Drawing.Point(170, 583);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(120, 47);
             this.saveButton.TabIndex = 18;
@@ -177,7 +177,7 @@
             // 
             // addGuyButton
             // 
-            this.addGuyButton.Location = new System.Drawing.Point(424, 485);
+            this.addGuyButton.Location = new System.Drawing.Point(431, 583);
             this.addGuyButton.Name = "addGuyButton";
             this.addGuyButton.Size = new System.Drawing.Size(164, 47);
             this.addGuyButton.TabIndex = 19;
@@ -187,7 +187,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 462);
+            this.label3.Location = new System.Drawing.Point(35, 560);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 13);
             this.label3.TabIndex = 20;
@@ -195,7 +195,7 @@
             // 
             // creditNumericUpDown
             // 
-            this.creditNumericUpDown.Location = new System.Drawing.Point(163, 462);
+            this.creditNumericUpDown.Location = new System.Drawing.Point(170, 560);
             this.creditNumericUpDown.Name = "creditNumericUpDown";
             this.creditNumericUpDown.Size = new System.Drawing.Size(104, 20);
             this.creditNumericUpDown.TabIndex = 21;
@@ -211,11 +211,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            this.ClientSize = new System.Drawing.Size(791, 730);
-
-            this.ClientSize = new System.Drawing.Size(878, 569);
-
+            this.ClientSize = new System.Drawing.Size(878, 651);
             this.Controls.Add(this.resultPanel);
             this.Controls.Add(this.creditNumericUpDown);
             this.Controls.Add(this.label3);
