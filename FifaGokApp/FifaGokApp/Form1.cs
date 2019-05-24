@@ -21,6 +21,8 @@ namespace FifaGokApp
         public int creditAmount;
         Random rnd = new Random();
 
+        BetMenuForm betmenu = new BetMenuForm();
+
         Label teamLabel;
         TextBox scoreTeam;
         TextBox scoreTeam2;
@@ -50,8 +52,7 @@ namespace FifaGokApp
                 // hier komt de credits te staan van de laatste savegame
             }
             creditAmountLabel.Text = creditAmount.ToString();
-            creditNumericUpDown.Maximum = creditAmount;
-            creditNumericUpDown.ReadOnly = true;
+           
         }
 
         public async Task<string> fetchTeams()
@@ -75,7 +76,7 @@ namespace FifaGokApp
         }
 
 
-        public void Updatematches()
+      /*  public void Updatematches()
         {
             
             bool isLeftSide = true;
@@ -128,9 +129,9 @@ namespace FifaGokApp
                 isLeftSide = false;
 
             }
-        }
+        }*/
 
-        public void UpdateScreen()
+       /* public void UpdateScreen()
         {
             //pakt alle labels van teamlabel
             var labelsVar = teamPanel.Controls.OfType<Label>();
@@ -202,53 +203,18 @@ namespace FifaGokApp
                     isLeftSide = true;
                 }
             }
-        }
+        }*/
 
         public void Form1_Load(object sender, EventArgs e)
         {
-            Updatematches();
+            
             updateMoneyLabel();
             welcomeLabel.Text = string.Format("Welkom {0} in de FIFA gok app!", Program.guy.Name);
         }
 
 
         Gokker[] gokker = new Gokker[1];
-        private void betButton_Click(object sender, EventArgs e)
-        {
-            int parsedValue;
-            if (teamScore1.Text == string.Empty || teamScore2.Text == string.Empty)
-            {
-                MessageBox.Show("voer aub een stand in");
-            }
-            else if (!int.TryParse(teamScore1.Text, out parsedValue) || !int.TryParse(teamScore2.Text, out parsedValue))
-            {
-                MessageBox.Show("alleen nummers aub");
-                return;
-            }
-            else if (creditAmount < creditNumericUpDown.Value)
-            {
-                MessageBox.Show("sorry je hebt niet genoeg geld om in te zetten");
-            }
-            else if(creditNumericUpDown.Value == 0)
-            {
-                MessageBox.Show("geen bedrag ingezet. voer aub een bedrag in");
-            }
-            else
-            {
-                int bettetAmount = (int)creditNumericUpDown.Value;
-                creditAmountLabel.Text = (creditAmount - bettetAmount).ToString();
-
-                
-                for (int i = 0; i < Program.fifa.match.Count(); i++)
-                {
-                    MessageBox.Show(
-                        Program.guy.Name + " heeft €" + bettetAmount.ToString() + " ingezet op " +
-                        Program.fifa.match[i].team1 + " tegen " + Program.fifa.match[i].team2
-                    );
-                }
-                creditNumericUpDown.Value = 0;
-            }
-        }
+       
 
         private void saveButton_Click(object sender, EventArgs e)
         {
@@ -276,6 +242,15 @@ namespace FifaGokApp
         private void TeamLabel2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            betmenu.ShowDialog();
+            this.Show();
+            creditAmountLabel.Text = Program.guy.Credits.ToString();
+            updateMoneyLabel();
         }
     }
 }

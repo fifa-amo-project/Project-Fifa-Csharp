@@ -28,7 +28,7 @@ namespace FifaGokApp
         //public static Record[] fetchedTeams = JsonConvert.DeserializeObject<Record[]>(json);
         public static Fifa fifa = new Fifa();
         
-        public static Gokker guy = new Gokker("", 50, false, 0);
+        public static Gokker guy = new Gokker("", 50, false, 0, "");
 
         
 

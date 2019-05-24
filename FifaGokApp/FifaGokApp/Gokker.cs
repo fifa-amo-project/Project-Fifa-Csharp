@@ -21,13 +21,21 @@ namespace FifaGokApp
         public Bet Mybet = new Bet();
         public bool Guyhasbet  { get; set; }
         public int BetAmount { get; set; }
+        public string TeamBetOn { get; set; }
 
-        public Gokker(string name, int credits, bool hasBet, int betamount)
+        public Gokker(string name, int credits, bool hasBet, int betamount, string teambeton)
         {
             this.Name = name;
             this.Credits = credits;
             this.Guyhasbet = hasBet;
             this.BetAmount = betamount;
+            this.TeamBetOn = teambeton;
+        }
+
+        public void UpdateListBox()
+        {
+            Mybet.Gokker = this;
+            
         }
 
         public bool PlaceBet(int Amount, int Match)
