@@ -32,9 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.creditsLabel = new System.Windows.Forms.Label();
             this.creditAmountLabel = new System.Windows.Forms.Label();
-            this.loadTeamsButton = new System.Windows.Forms.Button();
+            this.LoadPlayerButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
-            this.addGuyButton = new System.Windows.Forms.Button();
             this.openBetFormButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -77,15 +76,15 @@
             this.creditAmountLabel.TabIndex = 13;
             this.creditAmountLabel.Text = "0";
             // 
-            // loadTeamsButton
+            // LoadPlayerButton
             // 
-            this.loadTeamsButton.Location = new System.Drawing.Point(158, 297);
-            this.loadTeamsButton.Name = "loadTeamsButton";
-            this.loadTeamsButton.Size = new System.Drawing.Size(120, 47);
-            this.loadTeamsButton.TabIndex = 15;
-            this.loadTeamsButton.Text = "Laad";
-            this.loadTeamsButton.UseVisualStyleBackColor = true;
-            this.loadTeamsButton.Click += new System.EventHandler(this.LoadTeamsButton_Click);
+            this.LoadPlayerButton.Location = new System.Drawing.Point(158, 297);
+            this.LoadPlayerButton.Name = "LoadPlayerButton";
+            this.LoadPlayerButton.Size = new System.Drawing.Size(120, 47);
+            this.LoadPlayerButton.TabIndex = 15;
+            this.LoadPlayerButton.Text = "Laad";
+            this.LoadPlayerButton.UseVisualStyleBackColor = true;
+            this.LoadPlayerButton.Click += new System.EventHandler(this.LoadTeamsButton_Click);
             // 
             // saveButton
             // 
@@ -96,15 +95,6 @@
             this.saveButton.Text = "opslaan";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
-            // addGuyButton
-            // 
-            this.addGuyButton.Location = new System.Drawing.Point(296, 297);
-            this.addGuyButton.Name = "addGuyButton";
-            this.addGuyButton.Size = new System.Drawing.Size(164, 47);
-            this.addGuyButton.TabIndex = 19;
-            this.addGuyButton.Text = "Maak nieuw account aan";
-            this.addGuyButton.UseVisualStyleBackColor = true;
             // 
             // openBetFormButton
             // 
@@ -122,9 +112,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 382);
             this.Controls.Add(this.openBetFormButton);
-            this.Controls.Add(this.addGuyButton);
             this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.loadTeamsButton);
+            this.Controls.Add(this.LoadPlayerButton);
             this.Controls.Add(this.creditsLabel);
             this.Controls.Add(this.creditAmountLabel);
             this.Controls.Add(this.label1);
@@ -143,9 +132,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label creditsLabel;
         private System.Windows.Forms.Label creditAmountLabel;
-        private System.Windows.Forms.Button loadTeamsButton;
+        private System.Windows.Forms.Button LoadPlayerButton;
         private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button addGuyButton;
         private System.Windows.Forms.Button openBetFormButton;
     }
 }

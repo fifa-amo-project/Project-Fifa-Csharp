@@ -35,8 +35,8 @@
             this.betButton = new System.Windows.Forms.Button();
             this.creditNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.teamOneRadioButton = new System.Windows.Forms.RadioButton();
             this.teamTwoRadioButton = new System.Windows.Forms.RadioButton();
+            this.teamOneRadioButton = new System.Windows.Forms.RadioButton();
             this.creditLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.creditNumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -44,6 +44,7 @@
             // 
             // MatchComboBox
             // 
+            this.MatchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MatchComboBox.FormattingEnabled = true;
             this.MatchComboBox.Location = new System.Drawing.Point(42, 251);
             this.MatchComboBox.Name = "MatchComboBox";
@@ -101,17 +102,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // teamOneRadioButton
-            // 
-            this.teamOneRadioButton.AutoSize = true;
-            this.teamOneRadioButton.Location = new System.Drawing.Point(3, 19);
-            this.teamOneRadioButton.Name = "teamOneRadioButton";
-            this.teamOneRadioButton.Size = new System.Drawing.Size(85, 17);
-            this.teamOneRadioButton.TabIndex = 0;
-            this.teamOneRadioButton.TabStop = true;
-            this.teamOneRadioButton.Text = "radioButton1";
-            this.teamOneRadioButton.UseVisualStyleBackColor = true;
-            // 
             // teamTwoRadioButton
             // 
             this.teamTwoRadioButton.AutoSize = true;
@@ -122,6 +112,17 @@
             this.teamTwoRadioButton.TabStop = true;
             this.teamTwoRadioButton.Text = "radioButton2";
             this.teamTwoRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // teamOneRadioButton
+            // 
+            this.teamOneRadioButton.AutoSize = true;
+            this.teamOneRadioButton.Location = new System.Drawing.Point(3, 19);
+            this.teamOneRadioButton.Name = "teamOneRadioButton";
+            this.teamOneRadioButton.Size = new System.Drawing.Size(85, 17);
+            this.teamOneRadioButton.TabIndex = 0;
+            this.teamOneRadioButton.TabStop = true;
+            this.teamOneRadioButton.Text = "radioButton1";
+            this.teamOneRadioButton.UseVisualStyleBackColor = true;
             // 
             // creditLabel
             // 

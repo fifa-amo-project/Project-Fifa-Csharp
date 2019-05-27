@@ -42,7 +42,7 @@ namespace FifaGokApp
     {
 
         [JsonProperty("id")]
-        public int id { get; set; }
+        public string id { get; set; }
 
         [JsonProperty("team1")]
         public string team1 { get; set; }

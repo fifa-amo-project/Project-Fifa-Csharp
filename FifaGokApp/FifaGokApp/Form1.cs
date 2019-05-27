@@ -252,5 +252,10 @@ namespace FifaGokApp
             creditAmountLabel.Text = Program.guy.Credits.ToString();
             updateMoneyLabel();
         }
+
+        private void LoadTeamsButton_Click_1(object sender, EventArgs e)
+        {
+            Program.fifa.GetMatches();
+        }
     }
 }
