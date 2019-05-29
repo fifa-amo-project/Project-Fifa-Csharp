@@ -78,11 +78,12 @@ namespace FifaGokApp
             {
                 int bettetAmount = (int)creditNumericUpDown.Value;
                 Program.guy.Credits -= bettetAmount;
+                Program.guy.BetAmount = bettetAmount;
                 creditAmount = Program.guy.Credits;
                 creditLabel.Text = creditAmount.ToString();
                 bettetAmount = Program.guy.BetAmount;
                 winningteam = SelectedTeamName();
-                winningteam = Program.guy.TeamBetOn;
+                Program.guy.TeamBetOn = winningteam;
                 MessageBox.Show(string.Format("{0} heeft op {1} {2} euro gezet. ", Program.guy.Name, SelectedTeamName(), creditNumericUpDown.Value));
                    
                     historyListBox.Items.Add(string.Format("{0} heeft {1} euro op {2} gezet met als stand: {3} - {4}", Program.guy.Name, creditNumericUpDown.Value, SelectedTeamName(), scoreTeam1TextBox.Text, scoreTeam2TextBox.Text) );

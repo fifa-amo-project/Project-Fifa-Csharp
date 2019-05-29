@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.creditsLabel = new System.Windows.Forms.Label();
             this.creditAmountLabel = new System.Windows.Forms.Label();
-            this.LoadPlayerButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.openBetFormButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -76,16 +75,6 @@
             this.creditAmountLabel.TabIndex = 13;
             this.creditAmountLabel.Text = "0";
             // 
-            // LoadPlayerButton
-            // 
-            this.LoadPlayerButton.Location = new System.Drawing.Point(158, 297);
-            this.LoadPlayerButton.Name = "LoadPlayerButton";
-            this.LoadPlayerButton.Size = new System.Drawing.Size(120, 47);
-            this.LoadPlayerButton.TabIndex = 15;
-            this.LoadPlayerButton.Text = "Laad";
-            this.LoadPlayerButton.UseVisualStyleBackColor = true;
-            this.LoadPlayerButton.Click += new System.EventHandler(this.LoadTeamsButton_Click);
-            // 
             // saveButton
             // 
             this.saveButton.Location = new System.Drawing.Point(19, 297);
@@ -113,7 +102,6 @@
             this.ClientSize = new System.Drawing.Size(878, 382);
             this.Controls.Add(this.openBetFormButton);
             this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.LoadPlayerButton);
             this.Controls.Add(this.creditsLabel);
             this.Controls.Add(this.creditAmountLabel);
             this.Controls.Add(this.label1);
@@ -132,7 +120,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label creditsLabel;
         private System.Windows.Forms.Label creditAmountLabel;
-        private System.Windows.Forms.Button LoadPlayerButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button openBetFormButton;
     }
