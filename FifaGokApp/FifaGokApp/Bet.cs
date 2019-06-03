@@ -37,25 +37,20 @@ namespace FifaGokApp
             }
         }
 
-        public int PayOutEven(int winner)
+        public int PayOutEven()
         {
-            if (Match == winner)
-            {
+            
+            
                 Gokker = Program.guy;
                 int amount = Program.guy.BetAmount;
-                MessageBox.Show("je hebt het geld gewonnen!");
+                
                 amount *= 1;
                 Clearbet();
                 return Gokker.Credits += amount;
 
 
-
-            }
-            else
-            {
-                Clearbet();
-                return 0;
-            }
+            
+            
         }
 
             private void Clearbet()

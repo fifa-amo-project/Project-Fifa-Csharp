@@ -60,7 +60,7 @@ namespace FifaGokApp
         }
         public void CollectEven(int winner)
         {
-            Mybet.PayOutEven(winner);
+            Mybet.PayOutEven();
         }
         public void LoadGokker()
         {
