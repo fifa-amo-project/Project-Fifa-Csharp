@@ -58,6 +58,10 @@ namespace FifaGokApp
         {
             Mybet.Payout(winner);
         }
+        public void CollectEven(int winner)
+        {
+            Mybet.PayOutEven(winner);
+        }
         public void LoadGokker()
         {
             if (File.Exists(@".\InfoGokker.dat"))

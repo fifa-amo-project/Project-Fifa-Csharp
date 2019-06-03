@@ -50,8 +50,8 @@ namespace FifaGokApp
         [JsonProperty("team2")]
         public string team2 { get; set; }
 
-        [JsonProperty("uitslag")]
-        public string uitslag { get; set; }
+        /* [JsonProperty("uitslag")]
+        public string uitslag { get; set; }*/
 
         [JsonProperty("result_team1")]
         public int result_team1 { get; set; }
@@ -70,6 +70,7 @@ namespace FifaGokApp
         {
             GetMatches();
             GetTeams();
+            GetResults();
         }
         public void GetMatches()
         {
@@ -81,6 +82,11 @@ namespace FifaGokApp
         {
             string strTeams = new WebClient().DownloadString("http://jaibreyonlourens.nl/Project-Fifa-PHP/API/read.php?key=Gr03n3Cactus");
              team = JsonConvert.DeserializeObject<List<Team>>(strTeams);
+        }
+        public void GetResults()
+        {
+            string strMatch = new WebClient().DownloadString("http://jaibreyonlourens.nl/Project-Fifa-PHP/API/readmatch.php?key=Gr03n3Cactus");
+            match = JsonConvert.DeserializeObject<List<Match>>(strMatch);
         }
 
     }

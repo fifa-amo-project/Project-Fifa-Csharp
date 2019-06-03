@@ -12,6 +12,7 @@ namespace FifaGokApp
 {
     public partial class BetMenuForm : Form
     {
+        int winner;
         public BetMenuForm()
         {
             InitializeComponent();
@@ -19,6 +20,7 @@ namespace FifaGokApp
 
         public int creditAmount;
         public string winningteam;
+        public string losingteam;
         public void updateMoneyLabel()
         {
             if (Application.OpenForms.OfType<BetMenuForm>().Count() == 1)
@@ -32,6 +34,16 @@ namespace FifaGokApp
             creditLabel.Text = creditAmount.ToString();
             creditNumericUpDown.Maximum = creditAmount;
             creditNumericUpDown.ReadOnly = true;
+        }
+
+        public void GetResults()
+        {
+            resultListBox.Items.Clear();
+            for (int i = 0; i < Program.fifa.match.Count; i++)
+            {
+                Program.fifa.GetResults();
+                resultListBox.Items.Add(string.Format("{0} - {1}", Program.fifa.match[i].result_team1, Program.fifa.match[i].result_team2));
+            }
         }
 
         public void GetMatches()
@@ -83,10 +95,16 @@ namespace FifaGokApp
                 creditLabel.Text = creditAmount.ToString();
                 bettetAmount = Program.guy.BetAmount;
                 winningteam = SelectedTeamName();
+                losingteam = LosingTeam();
                 Program.guy.TeamBetOn = winningteam;
+                
+
                 MessageBox.Show(string.Format("{0} heeft op {1} {2} euro gezet. ", Program.guy.Name, SelectedTeamName(), creditNumericUpDown.Value));
-                   
-                    historyListBox.Items.Add(string.Format("{0} heeft {1} euro op {2} gezet met als stand: {3} - {4}", Program.guy.Name, creditNumericUpDown.Value, SelectedTeamName(), scoreTeam1TextBox.Text, scoreTeam2TextBox.Text) );
+
+                historyListBox.Items.Add(string.Format("{0} heeft {1} euro op {2} gezet tegen {3} met als stand: {4} - {5}",
+                    Program.guy.Name, creditNumericUpDown.Value, SelectedTeamName(),
+                    losingteam,
+                        scoreTeam1TextBox.Text, scoreTeam2TextBox.Text) );
                 
                 creditNumericUpDown.Value = 0;
             
@@ -104,10 +122,113 @@ namespace FifaGokApp
                 return teamTwoRadioButton.Text;
             }
         }
+
+        public string LosingTeam()
+        {
+            if (teamOneRadioButton.Checked)
+            {
+                return teamTwoRadioButton.Text;
+            }
+            else
+            {
+                return teamOneRadioButton.Text;
+            }
+
+        }
         private void MatchComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             teamOneRadioButton.Text = Program.fifa.match[MatchComboBox.SelectedIndex].team1;
             teamTwoRadioButton.Text = Program.fifa.match[MatchComboBox.SelectedIndex].team2;
+        }
+
+        private void getResultsButton_Click(object sender, EventArgs e)
+        {
+
+            string ifWon = "";
+
+            for (int i = 0; i < Program.fifa.match.Count; i++)
+            {
+                
+                if (Program.fifa.match[i].result_team1 > Program.fifa.match[i].result_team2)
+                {
+                   ifWon = "Gewonnen van";
+                }
+                else if (Program.fifa.match[i].result_team1 < Program.fifa.match[i].result_team2)
+                {
+                    ifWon = "Verloren van";
+                }
+                else if (Program.fifa.match[i].result_team1 == Program.fifa.match[i].result_team2)
+                {
+                    ifWon = "Gelijkgespeeld met";
+                }
+                
+
+                Program.fifa.GetResults();
+                resultListBox.Items.Add(string.Format("{0} heeft {1} {2} met als uitslag {3} - {4} ",
+
+                Program.fifa.match[i].team1, ifWon,
+                Program.fifa.match[i].team2,
+                Program.fifa.match[i].result_team1, Program.fifa.match[i].result_team2));
+            }
+        }
+
+
+
+        public void payOutButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Program.fifa.match.Count; i++)
+            {
+                if (Program.fifa.match[i].result_team1 > Program.fifa.match[i].result_team2)
+                {
+                    if (Program.fifa.match[i].team1 == winningteam)
+                    {
+                        //write pay out function and put here
+                        Program.guy.Collect(winner);
+                        updateMoneyLabel();
+                    }
+                }
+                if (Program.fifa.match[i].result_team2 > Program.fifa.match[i].result_team1)
+                {
+                    if (Program.fifa.match[i].team2 == winningteam)
+                    {
+                        Program.guy.Collect(winner);
+                        updateMoneyLabel();
+                    }
+                }
+
+                if (Program.fifa.match[i].result_team1 < Program.fifa.match[i].result_team2)
+                {
+                    if (Program.fifa.match[i].team1 == winningteam)
+                    {
+                        //write pay out function and put here
+                        MessageBox.Show("Aww, verloren!");
+                        updateMoneyLabel();
+                    }
+                }
+                if (Program.fifa.match[i].result_team2 < Program.fifa.match[i].result_team1)
+                {
+                    if (Program.fifa.match[i].team2 == winningteam)
+                    {
+                        MessageBox.Show("Aww, verloren!");
+                        updateMoneyLabel();
+                    }
+                }
+                /*if (Program.fifa.match[i].result_team1 == Program.fifa.match[i].result_team2)
+                {
+                    if (Program.fifa.match[i].team1 == winningteam)
+                    {
+                        MessageBox.Show("Gelijkgespeeld, je krijgt je credits terug.");
+                        Program.guy.CollectEven(winner);
+                        updateMoneyLabel();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Gelijkgespeeld, je krijgt je credits terug.");
+                        Program.guy.CollectEven(winner);
+                        updateMoneyLabel();
+                    }
+                }*/
+            }
         }
     }
 }
