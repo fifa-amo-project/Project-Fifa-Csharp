@@ -178,40 +178,40 @@ namespace FifaGokApp
         {
             for (int i = 0; i < Program.fifa.match.Count; i++)
             {
-                if (Program.fifa.match[i].result_team1 > Program.fifa.match[i].result_team2)
+                if (Program.fifa.match[i].result_team1 > Program.fifa.match[i].result_team2
+                    && teamOneRadioButton.Checked )
                 {
-                    if (Program.fifa.match[i].team1 == winningteam)
-                    {
+                    
                         //write pay out function and put here
                         Program.guy.Collect(winner);
                         updateMoneyLabel();
-                    }
+                    
                 }
-                if (Program.fifa.match[i].result_team2 > Program.fifa.match[i].result_team1)
+                if (Program.fifa.match[i].result_team2 > Program.fifa.match[i].result_team1 
+                    && teamTwoRadioButton.Checked )
                 {
-                    if (Program.fifa.match[i].team2 == winningteam)
-                    {
+                   
                         Program.guy.Collect(winner);
                         updateMoneyLabel();
-                    }
+                    
                 }
 
-                if (Program.fifa.match[i].result_team1 < Program.fifa.match[i].result_team2)
+                if (Program.fifa.match[i].result_team1 < Program.fifa.match[i].result_team2
+                    && teamOneRadioButton.Checked )
                 {
-                    if (Program.fifa.match[i].team2 == winningteam)
-                    {
+                    
                         //write pay out function and put here
                         MessageBox.Show("Aww, verloren!");
                         updateMoneyLabel();
-                    }
+                    
                 }
-                if (Program.fifa.match[i].result_team2 < Program.fifa.match[i].result_team1)
+                if (Program.fifa.match[i].result_team2 < Program.fifa.match[i].result_team1
+                    && teamTwoRadioButton.Checked)
                 {
-                    if (Program.fifa.match[i].team2 == winningteam)
-                    {
+                    
                         MessageBox.Show("Aww, verloren!");
                         updateMoneyLabel();
-                    }
+                    
                 }
                 /*if (Program.fifa.match[i].result_team1 == Program.fifa.match[i].result_team2)
                 {
