@@ -198,7 +198,7 @@ namespace FifaGokApp
 
                 if (Program.fifa.match[i].result_team1 < Program.fifa.match[i].result_team2)
                 {
-                    if (Program.fifa.match[i].team1 == winningteam)
+                    if (Program.fifa.match[i].team2 == winningteam)
                     {
                         //write pay out function and put here
                         MessageBox.Show("Aww, verloren!");
