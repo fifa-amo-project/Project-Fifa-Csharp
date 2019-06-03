@@ -68,8 +68,27 @@ namespace FifaGokApp
             {
                 MessageBox.Show("voer aub een stand in");
             }
+            else if (int.Parse(scoreTeam1TextBox.Text) < int.Parse(scoreTeam2TextBox.Text) && teamOneRadioButton.Checked)
+            {
+                MessageBox.Show("Error, je mag niet wedden dat iemand verliest.");
+                Program.guy.CollectEven(winner);
+                updateMoneyLabel();
 
-            
+            }
+            else if (int.Parse(scoreTeam1TextBox.Text) > int.Parse(scoreTeam2TextBox.Text) && teamTwoRadioButton.Checked)
+            {
+                MessageBox.Show("Error, je mag niet wedden dat iemand verliest.");
+                Program.guy.CollectEven(winner);
+                updateMoneyLabel();
+            }
+            else if (int.Parse(scoreTeam1TextBox.Text) == int.Parse(scoreTeam2TextBox.Text))
+            {
+                MessageBox.Show("Error, je mag niet wedden op gelijkspel.");
+                Program.guy.CollectEven(winner);
+                updateMoneyLabel();
+
+            }
+
 
 
 
@@ -151,6 +170,7 @@ namespace FifaGokApp
         {
 
             string ifWon = "";
+            
 
             for (int i = 0; i < Program.fifa.match.Count; i++)
             {
@@ -182,26 +202,7 @@ namespace FifaGokApp
 
         public void payOutButton_Click(object sender, EventArgs e)
         {
-            if (int.Parse(scoreTeam1TextBox.Text) < int.Parse(scoreTeam2TextBox.Text) && teamOneRadioButton.Checked)
-            {
-                MessageBox.Show("Error, je mag niet wedden dat iemand verliest.");
-                Program.guy.CollectEven(winner);
-                updateMoneyLabel();
-
-            }
-            if (int.Parse(scoreTeam1TextBox.Text) > int.Parse(scoreTeam2TextBox.Text) && teamTwoRadioButton.Checked)
-            {
-                MessageBox.Show("Error, je mag niet wedden dat iemand verliest.");
-                Program.guy.CollectEven(winner);
-                updateMoneyLabel();
-            }
-            if (int.Parse(scoreTeam1TextBox.Text) == int.Parse(scoreTeam2TextBox.Text))
-            {
-                MessageBox.Show("Error, je mag niet wedden op gelijkspel.");
-                Program.guy.CollectEven(winner);
-                updateMoneyLabel();
-
-            }
+            
 
             for (int i = 0; i < Program.fifa.match.Count; i++)
             {
@@ -234,7 +235,9 @@ namespace FifaGokApp
                     && teamOneRadioButton.Checked
                     && teamOneRadioButton.Text == Program.fifa.match[i].team1
                     && teamTwoRadioButton.Text == Program.fifa.match[i].team2
-                    && int.Parse(scoreTeam1TextBox.Text) < int.Parse(scoreTeam2TextBox.Text))
+                   
+                    )
+                    
                 {
 
                     //write pay out function and put here
@@ -246,7 +249,7 @@ namespace FifaGokApp
                     && teamTwoRadioButton.Checked
                     && teamOneRadioButton.Text == Program.fifa.match[i].team1
                     && teamTwoRadioButton.Text == Program.fifa.match[i].team2
-                    && int.Parse(scoreTeam2TextBox.Text) < int.Parse(scoreTeam1TextBox.Text))
+                   )
                 {
 
 
