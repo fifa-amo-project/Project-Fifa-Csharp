@@ -30,8 +30,6 @@ namespace FifaGokApp
         
         public static Gokker guy = new Gokker("", 50, false, 0, "");
 
-        
-
         [STAThread]
         static void Main()
         {
