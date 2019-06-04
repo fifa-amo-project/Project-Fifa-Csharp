@@ -266,8 +266,11 @@ namespace FifaGokApp
                     && teamOneRadioButton.Text == Program.fifa.match[i].team1
                     && teamTwoRadioButton.Text == Program.fifa.match[i].team2)
                 {
-                    MessageBox.Show("De wedstrijd is nog niet gespeeld of het wedstrijd resultaat is 0 - 0.");
+                    MessageBox.Show("De wedstrijd is nog niet gespeeld of het wedstrijd resultaat is 0 - 0. \n" +
+                        "wacht tot de wedstrijd is gespeeld, haal de uitslagen opnieuw op en druk op uitbetalen.");
                     updateMoneyLabel();
+                    
+                    
 
                 }
             }

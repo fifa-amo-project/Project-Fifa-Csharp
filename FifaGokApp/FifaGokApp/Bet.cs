@@ -56,10 +56,10 @@ namespace FifaGokApp
 
             private void Clearbet()
             {
-                
-                Amount = Program.guy.BetAmount;
+
+                Program.guy.BetAmount = 0;
                 MessageBox.Show("Je weddenschappen zijn verwijdert en je kan opnieuw gokken!");
-                Amount = 0;
+                
             
             }
 
