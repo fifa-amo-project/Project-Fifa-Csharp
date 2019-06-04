@@ -124,13 +124,13 @@
             this.teamTwoRadioButton.Name = "teamTwoRadioButton";
             this.teamTwoRadioButton.Size = new System.Drawing.Size(110, 21);
             this.teamTwoRadioButton.TabIndex = 1;
-            this.teamTwoRadioButton.TabStop = true;
             this.teamTwoRadioButton.Text = "radioButton2";
             this.teamTwoRadioButton.UseVisualStyleBackColor = true;
             // 
             // teamOneRadioButton
             // 
             this.teamOneRadioButton.AutoSize = true;
+            this.teamOneRadioButton.Checked = true;
             this.teamOneRadioButton.Location = new System.Drawing.Point(4, 23);
             this.teamOneRadioButton.Margin = new System.Windows.Forms.Padding(4);
             this.teamOneRadioButton.Name = "teamOneRadioButton";
