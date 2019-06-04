@@ -21,6 +21,8 @@ namespace FifaGokApp
         public int creditAmount;
         public string winningteam;
         public string losingteam;
+        public bool isBetPlaced;
+        
         public void updateMoneyLabel()
         {
             if (Application.OpenForms.OfType<BetMenuForm>().Count() == 1)
@@ -57,6 +59,7 @@ namespace FifaGokApp
         }
         private void BetMenuForm_Load(object sender, EventArgs e)
         {
+            getResultsButton.Enabled = false;
             updateMoneyLabel();
             GetMatches();
         }
@@ -124,8 +127,8 @@ namespace FifaGokApp
                             scoreTeam1TextBox.Text, scoreTeam2TextBox.Text));
 
                     creditNumericUpDown.Value = 0;
-           
-                
+                     getResultsButton.Enabled = true;
+                betButton.Enabled = false;
                
             
             }
@@ -211,7 +214,9 @@ namespace FifaGokApp
                     //write pay out function and put here
                     Program.guy.Collect(winner);
                     updateMoneyLabel();
-                    
+                    getResultsButton.Enabled = false;
+                    betButton.Enabled = true;
+
 
                 }
                 if (Program.fifa.match[i].result_team2 > Program.fifa.match[i].result_team1
@@ -223,6 +228,8 @@ namespace FifaGokApp
 
                     Program.guy.Collect(winner);
                     updateMoneyLabel();
+                    getResultsButton.Enabled = false;
+                    betButton.Enabled = true;
 
                 }
 
@@ -238,7 +245,8 @@ namespace FifaGokApp
                     //write pay out function and put here
                     MessageBox.Show("Aww, verloren!");
                     updateMoneyLabel();
-
+                    getResultsButton.Enabled = false;
+                    betButton.Enabled = true;
                 }
                 if (Program.fifa.match[i].result_team2 < Program.fifa.match[i].result_team1
                     && teamTwoRadioButton.Checked
@@ -250,7 +258,8 @@ namespace FifaGokApp
 
                     MessageBox.Show("Aww, verloren!");
                     updateMoneyLabel();
-
+                    getResultsButton.Enabled = false;
+                    betButton.Enabled = true;
 
                 }
             }

@@ -46,6 +46,7 @@ namespace FifaGokApp
                 Mybet.Amount += Amount;
                 Credits -= Amount;
                 Mybet.Match = Match;
+                Guyhasbet = true;
                 return true;
             }
             else
@@ -59,7 +60,7 @@ namespace FifaGokApp
         {
             Mybet.Amount = BetAmount;
             Mybet.Payout(winner);
-           
+            Guyhasbet = false;
         }
         public void CollectEven(int winner)
         {
