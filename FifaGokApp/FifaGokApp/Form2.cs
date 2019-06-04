@@ -89,11 +89,6 @@ namespace FifaGokApp
 
             }
 
-
-
-
-
-
             else if (!int.TryParse(scoreTeam1TextBox.Text, out parsedValue) || !int.TryParse(scoreTeam2TextBox.Text, out parsedValue))
             {
                 MessageBox.Show("alleen nummers aub");
@@ -170,7 +165,7 @@ namespace FifaGokApp
         {
 
             string ifWon = "";
-            
+            resultListBox.Items.Clear();
 
             for (int i = 0; i < Program.fifa.match.Count; i++)
             {
@@ -258,22 +253,6 @@ namespace FifaGokApp
 
 
                 }
-
-                
-                /*if (Program.fifa.match[i].result_team1 == Program.fifa.match[i].result_team2
-                    && teamOneRadioButton.Checked || teamTwoRadioButton.Checked)
-                {
-
-                    MessageBox.Show("Gelijkgespeeld, je krijgt je credits terug.");
-                    Program.guy.CollectEven(winner);
-                    updateMoneyLabel();
-                }
-                else
-                {
-                    MessageBox.Show("error");
-                    
-                
-                }*/
             }
         }
     }

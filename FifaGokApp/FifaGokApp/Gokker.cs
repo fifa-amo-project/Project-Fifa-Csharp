@@ -23,6 +23,7 @@ namespace FifaGokApp
         public int BetAmount { get; set; }
         public string TeamBetOn { get; set; }
 
+        
         public Gokker(string name, int credits, bool hasBet, int betamount, string teambeton)
         {
             this.Name = name;
@@ -34,7 +35,7 @@ namespace FifaGokApp
 
         public void UpdateListBox()
         {
-            Mybet.Gokker = this;
+            
             
         }
 
@@ -56,7 +57,9 @@ namespace FifaGokApp
 
         public void Collect(int winner)
         {
+            Mybet.Amount = BetAmount;
             Mybet.Payout(winner);
+           
         }
         public void CollectEven(int winner)
         {

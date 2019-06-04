@@ -13,22 +13,23 @@ namespace FifaGokApp
     {
         public int Amount { get; set; }
         public int Match { get; set; }
-        public Gokker Gokker;
+        
         
 
         public int Payout(int winner)
         {
             if(Match == winner)
             {
-                Gokker = Program.guy;
-                int amount = Program.guy.BetAmount;
+                Amount = Program.guy.BetAmount;
+                
                 MessageBox.Show("je hebt het geld gewonnen!");
-                amount *= 2;
+                Amount *= 2;
+               Program.guy.Credits += Amount;
                 Clearbet();
-                return Gokker.Credits += amount;
+                return Program.guy.Credits;
                 
-                
-                
+
+
             }
             else
             {
@@ -41,12 +42,12 @@ namespace FifaGokApp
         {
             
             
-                Gokker = Program.guy;
+               
                 int amount = Program.guy.BetAmount;
                 
-                amount *= 1;
+                Amount *= 1;
                 Clearbet();
-                return Gokker.Credits += amount;
+                return Program.guy.Credits += Amount;
 
 
             
@@ -54,13 +55,13 @@ namespace FifaGokApp
         }
 
             private void Clearbet()
-        {
-            Gokker = Program.guy;
-            int amount = Program.guy.BetAmount;
-            MessageBox.Show("Je weddenschappen zijn verwijdert en je kan opnieuw gokken!");
-            Program.guy.BetAmount = 0;
+            {
+                
+                Amount = Program.guy.BetAmount;
+                MessageBox.Show("Je weddenschappen zijn verwijdert en je kan opnieuw gokken!");
+                Amount = 0;
             
-        }
+            }
 
     }
 }
