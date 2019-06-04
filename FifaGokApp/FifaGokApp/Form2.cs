@@ -67,6 +67,7 @@ namespace FifaGokApp
         private void BetButton_Click(object sender, EventArgs e)
         {
             int parsedValue;
+
             if (scoreTeam1TextBox.Text == string.Empty || scoreTeam2TextBox.Text == string.Empty)
             {
                 MessageBox.Show("voer aub een stand in");
@@ -83,12 +84,12 @@ namespace FifaGokApp
                 Program.guy.CollectEven(winner);
                 updateMoneyLabel();
             }
-            else if (int.Parse(scoreTeam1TextBox.Text) == int.Parse(scoreTeam2TextBox.Text))
+           /*else if (int.Parse(scoreTeam1TextBox.Text) == 0 && int.Parse(scoreTeam2TextBox.Text) == 0)
             {
-                MessageBox.Show("Error, je mag niet wedden op gelijkspel.");
+                MessageBox.Show("Error, .");
                 Program.guy.CollectEven(winner);
                 updateMoneyLabel();
-            }
+            }*/
 
             else if (!int.TryParse(scoreTeam1TextBox.Text, out parsedValue) || !int.TryParse(scoreTeam2TextBox.Text, out parsedValue))
             {
@@ -184,8 +185,6 @@ namespace FifaGokApp
 
         public void payOutButton_Click(object sender, EventArgs e)
         {
-            
-
             for (int i = 0; i < Program.fifa.match.Count; i++)
             {
                 if (Program.fifa.match[i].result_team1 == int.Parse(scoreTeam1TextBox.Text)
@@ -201,7 +200,7 @@ namespace FifaGokApp
                     getResultsButton.Enabled = false;
                     betButton.Enabled = true;
                 }
-
+                
                 else if (Program.fifa.match[i].result_team2 == int.Parse(scoreTeam2TextBox.Text)
                     && Program.fifa.match[i].result_team1 == int.Parse(scoreTeam1TextBox.Text)
                     && teamTwoRadioButton.Checked
@@ -210,6 +209,20 @@ namespace FifaGokApp
                     && Program.fifa.match[i].result_team1 < Program.fifa.match[i].result_team2)
                 {
                     Program.guy.CollectTriple(winner);
+                    updateMoneyLabel();
+                    getResultsButton.Enabled = false;
+                    betButton.Enabled = true;
+                }
+
+                else if (Program.fifa.match[i].result_team1 == Program.fifa.match[i].result_team2
+                    && teamTwoRadioButton.Checked || teamOneRadioButton.Checked
+                    && teamOneRadioButton.Text == Program.fifa.match[i].team1
+                    && teamTwoRadioButton.Text == Program.fifa.match[i].team2
+                    && Program.fifa.match[i].result_team1 == int.Parse(scoreTeam1TextBox.Text)
+                    && Program.fifa.match[i].result_team2 == int.Parse(scoreTeam2TextBox.Text)
+                    )
+                {
+                    Program.guy.Collect(winner);
                     updateMoneyLabel();
                     getResultsButton.Enabled = false;
                     betButton.Enabled = true;

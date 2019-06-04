@@ -25,6 +25,7 @@ namespace FifaGokApp
                 Clearbet();
                 return Program.guy.Credits;
             }
+
             else
             {
                 Clearbet();
