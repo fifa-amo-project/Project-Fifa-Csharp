@@ -275,5 +275,29 @@ namespace FifaGokApp
                 }
             }
         }
+
+        private void scoreTeam2TextBox_TextChanged(object sender, EventArgs e)
+        {
+            int parsedValue;
+
+            
+            if ( !int.TryParse(scoreTeam2TextBox.Text, out parsedValue) && scoreTeam2TextBox.Text != ""  )
+            {
+                scoreTeam2TextBox.Clear();
+                MessageBox.Show("Alleen nummers alsjeblieft.");
+                
+            }
+        }
+
+        private void scoreTeam1TextBox_TextChanged(object sender, EventArgs e)
+        {
+            int parsedValue;
+            if (!int.TryParse(scoreTeam1TextBox.Text, out parsedValue) && scoreTeam1TextBox.Text != "")
+            {
+                scoreTeam1TextBox.Clear();
+                MessageBox.Show("Alleen nummers alsjeblieft.");
+                
+            }
+        }
     }
 }

@@ -50,7 +50,7 @@
             this.MatchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MatchComboBox.FormattingEnabled = true;
             this.MatchComboBox.Location = new System.Drawing.Point(56, 309);
-            this.MatchComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MatchComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.MatchComboBox.Name = "MatchComboBox";
             this.MatchComboBox.Size = new System.Drawing.Size(224, 24);
             this.MatchComboBox.TabIndex = 0;
@@ -61,7 +61,7 @@
             this.historyListBox.FormattingEnabled = true;
             this.historyListBox.ItemHeight = 16;
             this.historyListBox.Location = new System.Drawing.Point(16, 15);
-            this.historyListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.historyListBox.Margin = new System.Windows.Forms.Padding(4);
             this.historyListBox.Name = "historyListBox";
             this.historyListBox.Size = new System.Drawing.Size(1050, 180);
             this.historyListBox.TabIndex = 1;
@@ -69,23 +69,25 @@
             // scoreTeam1TextBox
             // 
             this.scoreTeam1TextBox.Location = new System.Drawing.Point(56, 447);
-            this.scoreTeam1TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.scoreTeam1TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.scoreTeam1TextBox.Name = "scoreTeam1TextBox";
             this.scoreTeam1TextBox.Size = new System.Drawing.Size(77, 22);
             this.scoreTeam1TextBox.TabIndex = 2;
+            this.scoreTeam1TextBox.TextChanged += new System.EventHandler(this.scoreTeam1TextBox_TextChanged);
             // 
             // scoreTeam2TextBox
             // 
             this.scoreTeam2TextBox.Location = new System.Drawing.Point(187, 447);
-            this.scoreTeam2TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.scoreTeam2TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.scoreTeam2TextBox.Name = "scoreTeam2TextBox";
             this.scoreTeam2TextBox.Size = new System.Drawing.Size(79, 22);
             this.scoreTeam2TextBox.TabIndex = 3;
+            this.scoreTeam2TextBox.TextChanged += new System.EventHandler(this.scoreTeam2TextBox_TextChanged);
             // 
             // betButton
             // 
             this.betButton.Location = new System.Drawing.Point(107, 511);
-            this.betButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.betButton.Margin = new System.Windows.Forms.Padding(4);
             this.betButton.Name = "betButton";
             this.betButton.Size = new System.Drawing.Size(100, 28);
             this.betButton.TabIndex = 4;
@@ -96,7 +98,7 @@
             // creditNumericUpDown
             // 
             this.creditNumericUpDown.Location = new System.Drawing.Point(128, 479);
-            this.creditNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.creditNumericUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.creditNumericUpDown.Name = "creditNumericUpDown";
             this.creditNumericUpDown.Size = new System.Drawing.Size(79, 22);
             this.creditNumericUpDown.TabIndex = 6;
@@ -106,9 +108,9 @@
             this.groupBox1.Controls.Add(this.teamTwoRadioButton);
             this.groupBox1.Controls.Add(this.teamOneRadioButton);
             this.groupBox1.Location = new System.Drawing.Point(56, 363);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(247, 60);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
@@ -118,7 +120,7 @@
             // 
             this.teamTwoRadioButton.AutoSize = true;
             this.teamTwoRadioButton.Location = new System.Drawing.Point(125, 23);
-            this.teamTwoRadioButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.teamTwoRadioButton.Margin = new System.Windows.Forms.Padding(4);
             this.teamTwoRadioButton.Name = "teamTwoRadioButton";
             this.teamTwoRadioButton.Size = new System.Drawing.Size(110, 21);
             this.teamTwoRadioButton.TabIndex = 1;
@@ -130,7 +132,7 @@
             // 
             this.teamOneRadioButton.AutoSize = true;
             this.teamOneRadioButton.Location = new System.Drawing.Point(4, 23);
-            this.teamOneRadioButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.teamOneRadioButton.Margin = new System.Windows.Forms.Padding(4);
             this.teamOneRadioButton.Name = "teamOneRadioButton";
             this.teamOneRadioButton.Size = new System.Drawing.Size(110, 21);
             this.teamOneRadioButton.TabIndex = 0;
@@ -194,7 +196,7 @@
             this.Controls.Add(this.scoreTeam1TextBox);
             this.Controls.Add(this.historyListBox);
             this.Controls.Add(this.MatchComboBox);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BetMenuForm";
             this.Text = "Bet Menu";
             this.Load += new System.EventHandler(this.BetMenuForm_Load);
