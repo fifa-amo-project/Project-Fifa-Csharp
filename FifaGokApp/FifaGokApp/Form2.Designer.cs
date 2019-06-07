@@ -49,47 +49,41 @@
             // 
             this.MatchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MatchComboBox.FormattingEnabled = true;
-            this.MatchComboBox.Location = new System.Drawing.Point(56, 309);
-            this.MatchComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.MatchComboBox.Location = new System.Drawing.Point(42, 251);
             this.MatchComboBox.Name = "MatchComboBox";
-            this.MatchComboBox.Size = new System.Drawing.Size(224, 24);
+            this.MatchComboBox.Size = new System.Drawing.Size(169, 21);
             this.MatchComboBox.TabIndex = 0;
             this.MatchComboBox.SelectedIndexChanged += new System.EventHandler(this.MatchComboBox_SelectedIndexChanged);
             // 
             // historyListBox
             // 
             this.historyListBox.FormattingEnabled = true;
-            this.historyListBox.ItemHeight = 16;
-            this.historyListBox.Location = new System.Drawing.Point(16, 15);
-            this.historyListBox.Margin = new System.Windows.Forms.Padding(4);
+            this.historyListBox.Location = new System.Drawing.Point(12, 12);
             this.historyListBox.Name = "historyListBox";
-            this.historyListBox.Size = new System.Drawing.Size(1050, 180);
+            this.historyListBox.Size = new System.Drawing.Size(788, 147);
             this.historyListBox.TabIndex = 1;
             // 
             // scoreTeam1TextBox
             // 
-            this.scoreTeam1TextBox.Location = new System.Drawing.Point(56, 447);
-            this.scoreTeam1TextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.scoreTeam1TextBox.Location = new System.Drawing.Point(42, 363);
             this.scoreTeam1TextBox.Name = "scoreTeam1TextBox";
-            this.scoreTeam1TextBox.Size = new System.Drawing.Size(77, 22);
+            this.scoreTeam1TextBox.Size = new System.Drawing.Size(59, 20);
             this.scoreTeam1TextBox.TabIndex = 2;
             this.scoreTeam1TextBox.TextChanged += new System.EventHandler(this.scoreTeam1TextBox_TextChanged);
             // 
             // scoreTeam2TextBox
             // 
-            this.scoreTeam2TextBox.Location = new System.Drawing.Point(187, 447);
-            this.scoreTeam2TextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.scoreTeam2TextBox.Location = new System.Drawing.Point(140, 363);
             this.scoreTeam2TextBox.Name = "scoreTeam2TextBox";
-            this.scoreTeam2TextBox.Size = new System.Drawing.Size(79, 22);
+            this.scoreTeam2TextBox.Size = new System.Drawing.Size(60, 20);
             this.scoreTeam2TextBox.TabIndex = 3;
             this.scoreTeam2TextBox.TextChanged += new System.EventHandler(this.scoreTeam2TextBox_TextChanged);
             // 
             // betButton
             // 
-            this.betButton.Location = new System.Drawing.Point(107, 511);
-            this.betButton.Margin = new System.Windows.Forms.Padding(4);
+            this.betButton.Location = new System.Drawing.Point(80, 415);
             this.betButton.Name = "betButton";
-            this.betButton.Size = new System.Drawing.Size(100, 28);
+            this.betButton.Size = new System.Drawing.Size(75, 23);
             this.betButton.TabIndex = 4;
             this.betButton.Text = "zet in ";
             this.betButton.UseVisualStyleBackColor = true;
@@ -97,74 +91,67 @@
             // 
             // creditNumericUpDown
             // 
-            this.creditNumericUpDown.Location = new System.Drawing.Point(128, 479);
-            this.creditNumericUpDown.Margin = new System.Windows.Forms.Padding(4);
+            this.creditNumericUpDown.Location = new System.Drawing.Point(96, 389);
             this.creditNumericUpDown.Name = "creditNumericUpDown";
-            this.creditNumericUpDown.Size = new System.Drawing.Size(79, 22);
+            this.creditNumericUpDown.Size = new System.Drawing.Size(59, 20);
             this.creditNumericUpDown.TabIndex = 6;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.teamTwoRadioButton);
             this.groupBox1.Controls.Add(this.teamOneRadioButton);
-            this.groupBox1.Location = new System.Drawing.Point(56, 363);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(42, 295);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(247, 60);
+            this.groupBox1.Size = new System.Drawing.Size(185, 49);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Huidige wedstrijd";
             // 
             // teamTwoRadioButton
             // 
             this.teamTwoRadioButton.AutoSize = true;
-            this.teamTwoRadioButton.Location = new System.Drawing.Point(125, 23);
-            this.teamTwoRadioButton.Margin = new System.Windows.Forms.Padding(4);
+            this.teamTwoRadioButton.Location = new System.Drawing.Point(94, 19);
             this.teamTwoRadioButton.Name = "teamTwoRadioButton";
-            this.teamTwoRadioButton.Size = new System.Drawing.Size(110, 21);
+            this.teamTwoRadioButton.Size = new System.Drawing.Size(14, 13);
             this.teamTwoRadioButton.TabIndex = 1;
-            this.teamTwoRadioButton.Text = "radioButton2";
             this.teamTwoRadioButton.UseVisualStyleBackColor = true;
             // 
             // teamOneRadioButton
             // 
             this.teamOneRadioButton.AutoSize = true;
             this.teamOneRadioButton.Checked = true;
-            this.teamOneRadioButton.Location = new System.Drawing.Point(4, 23);
-            this.teamOneRadioButton.Margin = new System.Windows.Forms.Padding(4);
+            this.teamOneRadioButton.Location = new System.Drawing.Point(3, 19);
             this.teamOneRadioButton.Name = "teamOneRadioButton";
-            this.teamOneRadioButton.Size = new System.Drawing.Size(110, 21);
+            this.teamOneRadioButton.Size = new System.Drawing.Size(14, 13);
             this.teamOneRadioButton.TabIndex = 0;
             this.teamOneRadioButton.TabStop = true;
-            this.teamOneRadioButton.Text = "radioButton1";
             this.teamOneRadioButton.UseVisualStyleBackColor = true;
             // 
             // creditLabel
             // 
             this.creditLabel.AutoSize = true;
             this.creditLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creditLabel.Location = new System.Drawing.Point(16, 219);
-            this.creditLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.creditLabel.Location = new System.Drawing.Point(12, 178);
             this.creditLabel.Name = "creditLabel";
-            this.creditLabel.Size = new System.Drawing.Size(29, 31);
+            this.creditLabel.Size = new System.Drawing.Size(24, 25);
             this.creditLabel.TabIndex = 8;
             this.creditLabel.Text = "1";
             // 
             // resultListBox
             // 
             this.resultListBox.FormattingEnabled = true;
-            this.resultListBox.ItemHeight = 16;
-            this.resultListBox.Location = new System.Drawing.Point(340, 263);
+            this.resultListBox.Location = new System.Drawing.Point(255, 214);
+            this.resultListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.resultListBox.Name = "resultListBox";
-            this.resultListBox.Size = new System.Drawing.Size(726, 180);
+            this.resultListBox.Size = new System.Drawing.Size(546, 147);
             this.resultListBox.TabIndex = 9;
             // 
             // getResultsButton
             // 
-            this.getResultsButton.Location = new System.Drawing.Point(340, 479);
+            this.getResultsButton.Location = new System.Drawing.Point(255, 389);
+            this.getResultsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.getResultsButton.Name = "getResultsButton";
-            this.getResultsButton.Size = new System.Drawing.Size(726, 59);
+            this.getResultsButton.Size = new System.Drawing.Size(544, 48);
             this.getResultsButton.TabIndex = 10;
             this.getResultsButton.Text = "Haal de uitslag op";
             this.getResultsButton.UseVisualStyleBackColor = true;
@@ -172,9 +159,10 @@
             // 
             // payOutButton
             // 
-            this.payOutButton.Location = new System.Drawing.Point(16, 559);
+            this.payOutButton.Location = new System.Drawing.Point(12, 454);
+            this.payOutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.payOutButton.Name = "payOutButton";
-            this.payOutButton.Size = new System.Drawing.Size(275, 51);
+            this.payOutButton.Size = new System.Drawing.Size(206, 41);
             this.payOutButton.TabIndex = 11;
             this.payOutButton.Text = "Uitbetalen";
             this.payOutButton.UseVisualStyleBackColor = true;
@@ -182,9 +170,9 @@
             // 
             // BetMenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1078, 622);
+            this.ClientSize = new System.Drawing.Size(808, 505);
             this.Controls.Add(this.payOutButton);
             this.Controls.Add(this.getResultsButton);
             this.Controls.Add(this.resultListBox);
@@ -196,7 +184,6 @@
             this.Controls.Add(this.scoreTeam1TextBox);
             this.Controls.Add(this.historyListBox);
             this.Controls.Add(this.MatchComboBox);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BetMenuForm";
             this.Text = "Bet Menu";
             this.Load += new System.EventHandler(this.BetMenuForm_Load);
