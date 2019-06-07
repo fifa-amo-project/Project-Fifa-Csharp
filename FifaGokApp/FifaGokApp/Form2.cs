@@ -215,11 +215,12 @@ namespace FifaGokApp
                 }
 
                 else if (Program.fifa.match[i].result_team1 == Program.fifa.match[i].result_team2
-                    && teamTwoRadioButton.Checked || teamOneRadioButton.Checked
+                    
                     && teamOneRadioButton.Text == Program.fifa.match[i].team1
                     && teamTwoRadioButton.Text == Program.fifa.match[i].team2
                     && Program.fifa.match[i].result_team1 == int.Parse(scoreTeam1TextBox.Text)
                     && Program.fifa.match[i].result_team2 == int.Parse(scoreTeam2TextBox.Text)
+                    && teamTwoRadioButton.Checked || teamOneRadioButton.Checked
                     )
                 {
                     Program.guy.Collect(winner);
@@ -281,6 +282,19 @@ namespace FifaGokApp
                         "wacht tot de wedstrijd is gespeeld, haal de uitslagen opnieuw op en druk op uitbetalen.");
                     updateMoneyLabel();
                 }
+                /*else if (Program.fifa.match[i].result_team1 == Program.fifa.match[i].result_team2
+                    && int.Parse(scoreTeam1TextBox.Text) == int.Parse(scoreTeam2TextBox.Text)
+                    && teamOneRadioButton.Text == Program.fifa.match[i].team1
+                    && teamTwoRadioButton.Text == Program.fifa.match[i].team2
+                    && teamOneRadioButton.Checked || teamTwoRadioButton.Checked)
+                {
+                    MessageBox.Show("Gelijkgespeeld, je krijgt je credits terug.");
+                    Program.guy.Credits += Program.guy.BetAmount *= 1;
+                    updateMoneyLabel();
+                    getResultsButton.Enabled = false;
+                    betButton.Enabled = true;
+
+                }*/
             }
         }
 
