@@ -215,12 +215,10 @@ namespace FifaGokApp
                 }
 
                 else if (Program.fifa.match[i].result_team1 == Program.fifa.match[i].result_team2
-                    
                     && teamOneRadioButton.Text == Program.fifa.match[i].team1
                     && teamTwoRadioButton.Text == Program.fifa.match[i].team2
                     && Program.fifa.match[i].result_team1 == int.Parse(scoreTeam1TextBox.Text)
                     && Program.fifa.match[i].result_team2 == int.Parse(scoreTeam2TextBox.Text)
-                    && teamTwoRadioButton.Checked || teamOneRadioButton.Checked
                     )
                 {
                     Program.guy.Collect(winner);
