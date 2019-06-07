@@ -84,12 +84,12 @@ namespace FifaGokApp
                 Program.guy.CollectEven(winner);
                 updateMoneyLabel();
             }
-           /*else if (int.Parse(scoreTeam1TextBox.Text) == 0 && int.Parse(scoreTeam2TextBox.Text) == 0)
+           else if (int.Parse(scoreTeam1TextBox.Text) == int.Parse(scoreTeam2TextBox.Text))
             {
-                MessageBox.Show("Error, .");
+                MessageBox.Show("Error, je mag niet wedden op gelijkspel .");
                 Program.guy.CollectEven(winner);
                 updateMoneyLabel();
-            }*/
+            }
 
             else if (!int.TryParse(scoreTeam1TextBox.Text, out parsedValue) || !int.TryParse(scoreTeam2TextBox.Text, out parsedValue))
             {
