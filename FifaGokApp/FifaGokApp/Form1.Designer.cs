@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.creditsLabel = new System.Windows.Forms.Label();
             this.creditAmountLabel = new System.Windows.Forms.Label();
-            this.saveButton = new System.Windows.Forms.Button();
             this.openBetFormButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -47,6 +46,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(18, 58);
@@ -57,9 +59,12 @@
             // 
             // creditsLabel
             // 
+            this.creditsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.creditsLabel.AutoSize = true;
             this.creditsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creditsLabel.Location = new System.Drawing.Point(495, 87);
+            this.creditsLabel.Location = new System.Drawing.Point(12, 144);
             this.creditsLabel.Name = "creditsLabel";
             this.creditsLabel.Size = new System.Drawing.Size(127, 37);
             this.creditsLabel.TabIndex = 12;
@@ -67,27 +72,21 @@
             // 
             // creditAmountLabel
             // 
+            this.creditAmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.creditAmountLabel.AutoSize = true;
             this.creditAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creditAmountLabel.Location = new System.Drawing.Point(628, 87);
+            this.creditAmountLabel.Location = new System.Drawing.Point(157, 144);
             this.creditAmountLabel.Name = "creditAmountLabel";
             this.creditAmountLabel.Size = new System.Drawing.Size(35, 37);
             this.creditAmountLabel.TabIndex = 13;
             this.creditAmountLabel.Text = "0";
             // 
-            // saveButton
-            // 
-            this.saveButton.Location = new System.Drawing.Point(19, 297);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(120, 47);
-            this.saveButton.TabIndex = 18;
-            this.saveButton.Text = "opslaan";
-            this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
             // openBetFormButton
             // 
-            this.openBetFormButton.Location = new System.Drawing.Point(466, 297);
+            this.openBetFormButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.openBetFormButton.Location = new System.Drawing.Point(12, 289);
             this.openBetFormButton.Name = "openBetFormButton";
             this.openBetFormButton.Size = new System.Drawing.Size(133, 47);
             this.openBetFormButton.TabIndex = 23;
@@ -99,9 +98,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 382);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(593, 382);
             this.Controls.Add(this.openBetFormButton);
-            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.creditsLabel);
             this.Controls.Add(this.creditAmountLabel);
             this.Controls.Add(this.label1);
@@ -120,7 +120,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label creditsLabel;
         private System.Windows.Forms.Label creditAmountLabel;
-        private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button openBetFormButton;
     }
 }

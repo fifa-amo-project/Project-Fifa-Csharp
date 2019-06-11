@@ -44,7 +44,7 @@ namespace FifaGokApp
             }
             else
             {
-                MessageBox.Show("U heeft niet genoeg geld om iets in te zetten");
+                MessageBox.Show("U heeft niet genoeg geld om iets in te zetten.");
                 return false;
             }
         }
@@ -66,17 +66,6 @@ namespace FifaGokApp
             Mybet.PayOutTriple(winner);
             Guyhasbet = false;
         }
-        public void LoadGokker()
-        {
-            if (File.Exists(@".\InfoGokker.dat"))
-            {
-                Program.guy = JsonConvert.DeserializeObject<Gokker>(File.ReadAllText(@".\InfoGokker.dat"));
-            }
-        }
-
-        public void SaveGokker()
-        {
-            File.WriteAllText(@".\InfoGokker.dat", JsonConvert.SerializeObject(Program.guy));
-        }
+        
     }
 }

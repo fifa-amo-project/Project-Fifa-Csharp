@@ -70,7 +70,7 @@ namespace FifaGokApp
 
             if (scoreTeam1TextBox.Text == string.Empty || scoreTeam2TextBox.Text == string.Empty)
             {
-                MessageBox.Show("voer aub een stand in");
+                MessageBox.Show("voer aub een stand in.");
             }
             else if (int.Parse(scoreTeam1TextBox.Text) < int.Parse(scoreTeam2TextBox.Text) && teamOneRadioButton.Checked)
             {
@@ -86,23 +86,23 @@ namespace FifaGokApp
             }
            else if (int.Parse(scoreTeam1TextBox.Text) == int.Parse(scoreTeam2TextBox.Text))
             {
-                MessageBox.Show("Error, je mag niet wedden op gelijkspel .");
+                MessageBox.Show("Error, je mag niet wedden op gelijkspel.");
                 Program.guy.CollectEven(winner);
                 updateMoneyLabel();
             }
 
             else if (!int.TryParse(scoreTeam1TextBox.Text, out parsedValue) || !int.TryParse(scoreTeam2TextBox.Text, out parsedValue))
             {
-                MessageBox.Show("alleen nummers aub");
+                MessageBox.Show("alleen nummers aub.");
                 return;
             }
             else if (creditAmount < creditNumericUpDown.Value)
             {
-                MessageBox.Show("sorry je hebt niet genoeg geld om in te zetten");
+                MessageBox.Show("sorry je hebt niet genoeg geld om in te zetten.");
             }
             else if (creditNumericUpDown.Value == 0)
             {
-                MessageBox.Show("geen bedrag ingezet. voer aub een bedrag in");
+                MessageBox.Show("geen bedrag ingezet. voer aub een bedrag in.");
             }
             else
             {   
@@ -117,7 +117,7 @@ namespace FifaGokApp
                 Program.guy.TeamBetOn = winningteam;
                 MessageBox.Show(string.Format("{0} heeft op {1} {2} euro gezet. ", 
                     Program.guy.Name, SelectedTeamName(), creditNumericUpDown.Value));
-                historyListBox.Items.Add(string.Format("{0} heeft {1} euro op {2} gezet tegen {3} met als stand: {4} - {5}",
+                historyListBox.Items.Add(string.Format("{0} heeft {1} euro op {2} gezet tegen {3} met als stand: {4} - {5}.",
                     Program.guy.Name, creditNumericUpDown.Value, SelectedTeamName(),
                     losingteam, scoreTeam1TextBox.Text, scoreTeam2TextBox.Text));
                 creditNumericUpDown.Value = 0;
@@ -176,7 +176,7 @@ namespace FifaGokApp
                     ifWon = "Gelijkgespeeld met";
                 }
                 Program.fifa.GetResults();
-                resultListBox.Items.Add(string.Format("{0} heeft {1} {2} met als uitslag {3} - {4} ",
+                resultListBox.Items.Add(string.Format("{0} heeft {1} {2} met als uitslag {3} - {4}. ",
                 Program.fifa.match[i].team1, ifWon,
                 Program.fifa.match[i].team2,
                 Program.fifa.match[i].result_team1, Program.fifa.match[i].result_team2));
@@ -280,19 +280,7 @@ namespace FifaGokApp
                         "wacht tot de wedstrijd is gespeeld, haal de uitslagen opnieuw op en druk op uitbetalen.");
                     updateMoneyLabel();
                 }
-                /*else if (Program.fifa.match[i].result_team1 == Program.fifa.match[i].result_team2
-                    && int.Parse(scoreTeam1TextBox.Text) == int.Parse(scoreTeam2TextBox.Text)
-                    && teamOneRadioButton.Text == Program.fifa.match[i].team1
-                    && teamTwoRadioButton.Text == Program.fifa.match[i].team2
-                    && teamOneRadioButton.Checked || teamTwoRadioButton.Checked)
-                {
-                    MessageBox.Show("Gelijkgespeeld, je krijgt je credits terug.");
-                    Program.guy.Credits += Program.guy.BetAmount *= 1;
-                    updateMoneyLabel();
-                    getResultsButton.Enabled = false;
-                    betButton.Enabled = true;
-
-                }*/
+                
             }
         }
 
