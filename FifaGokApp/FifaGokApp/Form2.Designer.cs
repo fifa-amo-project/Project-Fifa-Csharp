@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BetMenuForm));
             this.MatchComboBox = new System.Windows.Forms.ComboBox();
             this.historyListBox = new System.Windows.Forms.ListBox();
             this.scoreTeam1TextBox = new System.Windows.Forms.TextBox();
@@ -141,7 +142,7 @@
             // 
             this.resultListBox.FormattingEnabled = true;
             this.resultListBox.Location = new System.Drawing.Point(255, 214);
-            this.resultListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.resultListBox.Margin = new System.Windows.Forms.Padding(2);
             this.resultListBox.Name = "resultListBox";
             this.resultListBox.Size = new System.Drawing.Size(546, 147);
             this.resultListBox.TabIndex = 9;
@@ -149,7 +150,7 @@
             // getResultsButton
             // 
             this.getResultsButton.Location = new System.Drawing.Point(255, 389);
-            this.getResultsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.getResultsButton.Margin = new System.Windows.Forms.Padding(2);
             this.getResultsButton.Name = "getResultsButton";
             this.getResultsButton.Size = new System.Drawing.Size(544, 48);
             this.getResultsButton.TabIndex = 10;
@@ -160,7 +161,7 @@
             // payOutButton
             // 
             this.payOutButton.Location = new System.Drawing.Point(12, 454);
-            this.payOutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.payOutButton.Margin = new System.Windows.Forms.Padding(2);
             this.payOutButton.Name = "payOutButton";
             this.payOutButton.Size = new System.Drawing.Size(206, 41);
             this.payOutButton.TabIndex = 11;
@@ -184,6 +185,7 @@
             this.Controls.Add(this.scoreTeam1TextBox);
             this.Controls.Add(this.historyListBox);
             this.Controls.Add(this.MatchComboBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BetMenuForm";
             this.Text = "Bet Menu";
             this.Load += new System.EventHandler(this.BetMenuForm_Load);
